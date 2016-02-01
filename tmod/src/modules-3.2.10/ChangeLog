@@ -1,0 +1,1702 @@
+Do Not Edit!  This is a generated file.
+	You should edit the NEWS file instead.
+
+2012-12-19  R.K. Owen <rk@owen.sj.ca.us>
+
+  * .gitignore, ChangeLog, Makefile.am, NEWS, cvs2cl.pl, gitlog2changelog.py:
+  Added a python script by Marcus D. Hanwell to automatically generate the
+  ChangeLog.  Also no reason to manage ChangeLog under code management.
+
+2012-12-18  R.K. Owen <rk@owen.sj.ca.us>
+
+  * tcl/Makefile, tcl/README-EMACS.txt, tcl/README.txt, tcl/init/.gitignore,
+  tcl/init/Makefile, tcl/init/README.txt, tcl/init/bash.in, tcl/init/csh.in,
+  tcl/init/ksh.in, tcl/init/lisp.in, tcl/init/modulerc, tcl/init/perl.in,
+  tcl/init/python.in, tcl/init/sh.in, tcl/init/tcsh.in, tcl/init/zsh.debug,
+  tcl/init/zsh.in, tcl/modulecmd.tcl: Removed the Tcl-only version from the
+  branch.  Now that it's been forked to its own project.
+
+  * .gitignore, NEWS, configure.ac, modulefiles/.gitignore,
+  modulefiles/Makefile.am, modulefiles/module-cvs.in,
+  modulefiles/module-git.in: Changed the packaged modulefile for getting the
+  sources from git for the specific branch.
+
+2012-12-17  R.K. Owen <rk@owen.sj.ca.us>
+
+  * NEWS, testsuite/modulefiles/load/.version, testsuite/modulefiles/load/00,
+  testsuite/modulefiles/load/10, testsuite/modulefiles/load/11,
+  testsuite/modulefiles/load/12, testsuite/modulefiles/load/13,
+  testsuite/modulefiles/load/14, testsuite/modulefiles/load/15,
+  testsuite/modulefiles/load/16, testsuite/modulefiles/load/17,
+  testsuite/modulefiles/load/18, testsuite/modulefiles/load/19,
+  testsuite/modulefiles/load/20, testsuite/modulefiles/load/21,
+  testsuite/modulefiles/load/22, testsuite/modulefiles/load/23,
+  testsuite/modulefiles/load/24, testsuite/modulefiles/load/25,
+  testsuite/modulefiles/load/26, testsuite/modulefiles/load/27,
+  testsuite/modulefiles/load/28, testsuite/modulefiles/load/29,
+  testsuite/modulefiles/load/30, testsuite/modulefiles/load/all,
+  testsuite/modules.50-cmds/197-load-lots.exp: * Tested loading 20 other
+  modulefiles from a single one
+
+2012-12-13  R.K. Owen <rk@owen.sj.ca.us>
+
+  * .gitignore, NEWS, config/tcl.m4: * Search /usr/lib64 for tclConfig.sh also
+  (Jan Synacek)
+
+2012-12-06  R.K. Owen <rk@owen.sj.ca.us>
+
+  * NEWS, cmdInfo.c, doc/modulefile.4.in, testsuite/modulefiles/info/type,
+  testsuite/modules.50-cmds/089-info-type.exp: * Forked the Tcl-only version to
+  be maintained by Kent Mein. * Added the "module-info type" query to return
+  'C' to indicate that the modulecmd executable is the "C" version. (The
+  Tcl-only version will return 'Tcl'.)
+
+2012-11-19  R.K. Owen <rk@owen.sj.ca.us>
+
+  * LICENSE.GPL, NEWS: * Updated the FSF address in LICENSE.GPL (Jan Synacek)
+
+2012-11-12  R.K. Owen <rk@owen.sj.ca.us>
+
+  * ModuleCmd_Init.c, NEWS, cmdPath.c, cmdXResource.c, utility.c: * Fixed the
+  segfault problem with Tcl_RegExpCompile() (Kenneth Hoste, Tyson Whitehead)
+
+2012-11-08  R.K. Owen <rk@owen.sj.ca.us>
+
+  * ModuleCmd_Avail.c, NEWS, configure.ac, doc/module.1.in,
+  doc/modulefile.4.in: * Use the locale for sorting modulefiles by the avail
+  command
+
+2012-11-05  R.K. Owen <rk@owen.sj.ca.us>
+
+  * ModuleCmd_Update.c, NEWS: * Increased the "update" buffer (Leon Kos)
+
+2012-11-01  R.K. Owen <rk@owen.sj.ca.us>
+
+  * .gitattributes, etc/add.modules.in, ext/add.ext.in, init/.modulespath.in:
+  More $Id$
+
+  * Makefile.am, ModuleCmd_Avail.c, ModuleCmd_Clear.c, ModuleCmd_Display.c,
+  ModuleCmd_Help.c, ModuleCmd_Init.c, ModuleCmd_List.c, ModuleCmd_Load.c,
+  ModuleCmd_Purge.c, ModuleCmd_Refresh.c, ModuleCmd_Switch.c,
+  ModuleCmd_Update.c, ModuleCmd_Use.c, ModuleCmd_Whatis.c, cmdAlias.c,
+  cmdConflict.c, cmdInfo.c, cmdIsLoaded.c, cmdLog.c, cmdMisc.c, cmdModule.c,
+  cmdPath.c, cmdSetenv.c, cmdTrace.c, cmdUlvl.c, cmdUname.c, cmdVerbose.c,
+  cmdVersion.c, cmdWhatis.c, cmdXResource.c, configure.ac, error.c,
+  etc/Makefile.am, ext/Makefile.am, getopt.c, init.c, init/Makefile.am,
+  locate_module.c, main.c, modulefiles/Makefile.am, utility.c: Trying the git
+  version of $Id$
+
+  * NEWS, init/perl.pm.in, modules_def.h,
+  testsuite/modules.50-cmds/121-prereq-module.exp, utility.c: * If a bash shell
+  check if interactive or not for alias/functions * Fix the flags with regards
+  to recursive load/unload * Fix perl.pm init file typo (bug 3497092)
+
+2012-10-29  R.K. Owen <rk@owen.sj.ca.us>
+
+  * .gitignore, NEWS, cmdPath.c, testsuite/modulefiles/append/1.1,
+  testsuite/modulefiles/prepend/1.1,
+  testsuite/modules.50-cmds/172-seap-app-delim.exp,
+  testsuite/modules.50-cmds/172-swap-app-delim.exp,
+  testsuite/modules.50-cmds/173-swap-app-delim.exp,
+  testsuite/modules.50-cmds/177-swap-prep-delim.exp,
+  testsuite/modules.50-cmds/178-swap-prep-delim.exp: * Fix the module swap with
+  the --delim option (Tyson Whitehead)
+
+2012-10-25  R.K. Owen <rk@owen.sj.ca.us>
+
+  * .cvsignore, .gitignore, config/.cvsignore, config/.gitignore,
+  doc/.cvsignore, doc/.gitignore, etc/.cvsignore, etc/.gitignore,
+  etc/global/.cvsignore, etc/global/.gitignore, etc/skel/.cvsignore,
+  etc/skel/.gitignore, ext/.cvsignore, ext/.gitignore, ext/common/.cvsignore,
+  ext/common/.gitignore, init/.cvsignore, init/.gitignore,
+  modulefiles/.cvsignore, modulefiles/.gitignore, tcl/init/.cvsignore,
+  tcl/init/.gitignore, testsuite/.cvsignore, testsuite/.gitignore,
+  testsuite/etc/.cvsignore, testsuite/etc/.gitignore,
+  testsuite/home/.cvsignore, testsuite/home/.gitignore: Moved the .cvsignore
+  files to .gitignore
+
+2012-05-17  rkowen <rkowen>
+
+  * ModuleCmd_Load.c, NEWS, modules_def.h, testsuite/modulefiles/recurs/modA,
+  testsuite/modulefiles/recurs/modB,
+  testsuite/modules.50-cmds/085-info-flags.exp,
+  testsuite/modules.50-cmds/195-load-recurs.exp: * Fix the flags with regards
+  to recursive load/unload
+
+2011-11-28  rkowen <rkowen>
+
+  * ModuleCmd_Purge.c, ModuleCmd_Update.c, ModuleCmd_Use.c, NEWS, cmdPath.c,
+  cmdSetenv.c, testsuite/modules.00-init/080-begenv.exp, utility.c, version.c:
+  Test ptrs yielded by EMGetEnv.
+
+2011-11-11  rkowen <rkowen>
+
+  * ModuleCmd_Purge.c, ModuleCmd_Update.c, ModuleCmd_Use.c, NEWS, cmdPath.c,
+  cmdSetenv.c, init.c, modules_def.h, utility.c, version.c: Crucial bug fix ...
+  TclGetEnv/TclSetEnv are Tcl routines, so renamed these to EMGetEnv/EMSetEnv. 
+  Fix due to Orion Poplawski.
+
+2011-11-10  rkowen <rkowen>
+
+  * ChangeLog, NEWS, version.c: Preparation for distribution.
+
+2011-10-17  rkowen <rkowen>
+
+  * Makefile.am, NEWS, init.c, init/Makefile.am, init/ruby.rb.in, utility.c: *
+  Added support for Ruby (Tammo Tjarks)
+
+2011-10-03  rkowen <rkowen>
+
+  * cmdPath.c, utility.c: Rolled in Poor Yorick's changes to Remove_Path()
+  which fixes the memory corruption of "module purge".
+
+  * ModuleCmd_Avail.c, ModuleCmd_Update.c, NEWS, cmdLog.c, cmdVersion.c,
+  cmdWhatis.c, error.c, locate_module.c, modules_def.h, utility.c: * Optionally
+  use Tcl memory check routines for malloc/realloc.
+
+  * ModuleCmd_Display.c, ModuleCmd_Help.c, ModuleCmd_Load.c, ModuleCmd_Purge.c,
+  ModuleCmd_Refresh.c, ModuleCmd_Update.c, ModuleCmd_Use.c, ModuleCmd_Whatis.c,
+  NEWS, cmdPath.c, cmdSetenv.c, init.c, modules_def.h, utility.c: * Isolated
+  calls to the new interpreter and get & set env.vars.
+
+2010-11-11  rkowen <rkowen>
+
+  * ModuleCmd_Load.c, NEWS: * Fix the coexistence of load/remove flags (due to
+  Martin Siegert)
+
+  * ChangeLog, Makefile.am, ModuleCmd_Avail.c, ModuleCmd_Clear.c,
+  ModuleCmd_Display.c, ModuleCmd_Help.c, ModuleCmd_Init.c, ModuleCmd_List.c,
+  ModuleCmd_Load.c, ModuleCmd_Purge.c, ModuleCmd_Refresh.c, ModuleCmd_Switch.c,
+  ModuleCmd_Update.c, ModuleCmd_Use.c, ModuleCmd_Whatis.c, NEWS, TODO,
+  cmdAlias.c, cmdConflict.c, cmdInfo.c, cmdIsLoaded.c, cmdLog.c, cmdMisc.c,
+  cmdModule.c, cmdPath.c, cmdSetenv.c, cmdTrace.c, cmdUlvl.c, cmdUname.c,
+  cmdVerbose.c, cmdVersion.c, cmdWhatis.c, cmdXResource.c, config/emtcl.m4,
+  config/tcl.m4, configure.ac, doc/.cvsignore, doc/module.1.in,
+  doc/modulefile.4.in, error.c, etc/add.modules.in, etc/global/bashrc.in,
+  etc/global/csh.modules.in, etc/global/profile.modules.in, etc/mkroot.in,
+  ext/add.ext.in, ext/mkroot.in, init.c, init/.modulespath.in,
+  init/Makefile.am, init/bash.in, init/cmake.in, init/csh.in, init/ksh.in,
+  init/perl.pm.in, init/python.py.in, init/sh.in, init/zsh.in, locate_module.c,
+  main.c, modulefiles/Makefile.am, modulefiles/dot.in,
+  modulefiles/module-cvs.in, modulefiles/module-info.in,
+  modulefiles/modules.in, modulefiles/null.in, modulefiles/use.own.in,
+  modulefiles/version.in, modules.lsm.in, modules_def.h,
+  testsuite/config/unix.exp, testsuite/modulefiles.deep/modulerc/.modulerc,
+  testsuite/modulefiles.deep/modulerc/dir1/.modulerc,
+  testsuite/modulefiles.deep/modulerc/dir1/1.0,
+  testsuite/modulefiles.deep/modulerc/dir1/2.0,
+  testsuite/modulefiles.deep/modulerc/dir2/.modulerc,
+  .../modulefiles.deep/modulerc/dir2/1.0/.modulerc,
+  testsuite/modulefiles.deep/modulerc/dir2/1.0/rc1,
+  testsuite/modulefiles.deep/modulerc/dir2/1.0/rc2,
+  testsuite/modulefiles.deep/modulerc/dir2/2.0,
+  testsuite/modulefiles.deep/modulerc/dir2/3.0,
+  testsuite/modulefiles.deep/plain/dir1/1.0,
+  testsuite/modulefiles.deep/plain/dir1/2.0,
+  testsuite/modulefiles.deep/plain/dir2/1.0,
+  testsuite/modulefiles.deep/plain/dir2/2.0,
+  testsuite/modulefiles.deep/version/.version,
+  testsuite/modulefiles.deep/version/dir1/.version,
+  testsuite/modulefiles.deep/version/dir1/1.0,
+  testsuite/modulefiles.deep/version/dir1/2.0,
+  testsuite/modulefiles.deep/version/dir2/.version,
+  testsuite/modulefiles.deep/version/dir2/1.0,
+  .../modulefiles.deep/version/dir2/2.0/.version,
+  testsuite/modulefiles.deep/version/dir2/2.0/rc1,
+  testsuite/modulefiles.deep/version/dir2/2.0/rc2,
+  testsuite/modulefiles.deep/version/dir2/3.0, testsuite/modulefiles/break/2.0,
+  testsuite/modulefiles/info/shellsexp,
+  testsuite/modules.00-init/006-procs.exp,
+  testsuite/modules.00-init/030-shells.exp,
+  testsuite/modules.00-init/080-begenv.exp,
+  testsuite/modules.10-use/030-use.exp,
+  testsuite/modules.10-use/031-append.exp,
+  testsuite/modules.10-use/070-unuse.exp,
+  testsuite/modules.20-locate/050-locrc.exp,
+  testsuite/modules.35-trace/010-init_ts.exp,
+  testsuite/modules.50-cmds/015-use.exp,
+  testsuite/modules.50-cmds/017-use-undo.exp,
+  testsuite/modules.50-cmds/020-setenv.exp,
+  testsuite/modules.50-cmds/022-setenv-eschars.exp,
+  testsuite/modules.50-cmds/025-setenv-undo.exp,
+  testsuite/modules.50-cmds/030-unsetenv.exp,
+  testsuite/modules.50-cmds/035-unsetenv-undo.exp,
+  testsuite/modules.50-cmds/036-unsetenv-x.exp,
+  testsuite/modules.50-cmds/040-append.exp,
+  testsuite/modules.50-cmds/042-append-delim.exp,
+  testsuite/modules.50-cmds/045-append-undo.exp,
+  testsuite/modules.50-cmds/047-app-del-undo.exp,
+  testsuite/modules.50-cmds/050-prepend.exp,
+  testsuite/modules.50-cmds/052-prepend-delim.exp,
+  testsuite/modules.50-cmds/055-prepend-undo.exp,
+  testsuite/modules.50-cmds/057-pre-del-undo.exp,
+  testsuite/modules.50-cmds/060-remove.exp,
+  testsuite/modules.50-cmds/065-remove-undo.exp,
+  testsuite/modules.50-cmds/075-alias.exp,
+  testsuite/modules.50-cmds/077-alias-undo.exp,
+  testsuite/modules.50-cmds/078-refresh.exp,
+  testsuite/modules.50-cmds/080-info-name.exp,
+  testsuite/modules.50-cmds/086-info-shells.exp,
+  testsuite/modules.50-cmds/087-info-shells-exp.exp,
+  testsuite/modules.50-cmds/088-info-isloaded.exp,
+  testsuite/modules.50-cmds/095-uname.exp,
+  testsuite/modules.50-cmds/100-loglevel.exp,
+  testsuite/modules.50-cmds/170-swap.exp,
+  testsuite/modules.50-cmds/175-swap2.exp,
+  testsuite/modules.50-cmds/190-load.exp,
+  testsuite/modules.50-cmds/200-break.exp,
+  testsuite/modules.50-cmds/210-exit.exp,
+  testsuite/modules.50-cmds/220-continue.exp,
+  testsuite/modules.50-cmds/230-loop.exp,
+  testsuite/modules.70-maint/045-listlong.exp,
+  testsuite/modules.70-maint/070-display.exp,
+  testsuite/modules.80-deep/010-init_ts.exp,
+  testsuite/modules.80-deep/020-load.exp,
+  testsuite/modules.80-deep/030-display.exp,
+  testsuite/modules.80-deep/040-list.exp,
+  testsuite/modules.80-deep/999-cleanup.exp,
+  testsuite/modules.90-avail/030-multiple.exp,
+  testsuite/modules.90-avail/050-long.exp,
+  testsuite/modules.95-version/020-load.exp,
+  testsuite/modules.95-version/020-unload.exp,
+  testsuite/modules.95-version/022-load2.exp,
+  testsuite/modules.95-version/022-unload2.exp,
+  testsuite/modules.95-version/040-xgetenv.exp, utility.c, version.c,
+  xref/ModuleCmd_Avail.c.html, xref/ModuleCmd_Avail.c.src.html,
+  xref/ModuleCmd_Clear.c.html, xref/ModuleCmd_Clear.c.src.html,
+  xref/ModuleCmd_Display.c.html, xref/ModuleCmd_Display.c.src.html,
+  xref/ModuleCmd_Help.c.html, xref/ModuleCmd_Help.c.src.html,
+  xref/ModuleCmd_Init.c.html, xref/ModuleCmd_Init.c.src.html,
+  xref/ModuleCmd_List.c.html, xref/ModuleCmd_List.c.src.html,
+  xref/ModuleCmd_Load.c.html, xref/ModuleCmd_Load.c.src.html,
+  xref/ModuleCmd_Purge.c.html, xref/ModuleCmd_Purge.c.src.html,
+  xref/ModuleCmd_Refresh.c.html, xref/ModuleCmd_Refresh.c.src.html,
+  xref/ModuleCmd_Switch.c.html, xref/ModuleCmd_Switch.c.src.html,
+  xref/ModuleCmd_Update.c.html, xref/ModuleCmd_Update.c.src.html,
+  xref/ModuleCmd_Use.c.html, xref/ModuleCmd_Use.c.src.html,
+  xref/ModuleCmd_Whatis.c.html, xref/ModuleCmd_Whatis.c.src.html,
+  xref/cmdAlias.c.html, xref/cmdAlias.c.src.html, xref/cmdChdir.c.html,
+  xref/cmdChdir.c.src.html, xref/cmdConflict.c.html,
+  xref/cmdConflict.c.src.html, xref/cmdInfo.c.html, xref/cmdInfo.c.src.html,
+  xref/cmdIsLoaded.c.html, xref/cmdIsLoaded.c.src.html, xref/cmdLog.c.html,
+  xref/cmdLog.c.src.html, xref/cmdMisc.c.html, xref/cmdMisc.c.src.html,
+  xref/cmdModule.c.html, xref/cmdModule.c.src.html, xref/cmdPath.c.html,
+  xref/cmdPath.c.src.html, xref/cmdSetenv.c.html, xref/cmdSetenv.c.src.html,
+  xref/cmdTrace.c.html, xref/cmdTrace.c.src.html, xref/cmdUlvl.c.html,
+  xref/cmdUlvl.c.src.html, xref/cmdUname.c.html, xref/cmdUname.c.src.html,
+  xref/cmdVerbose.c.html, xref/cmdVerbose.c.src.html, xref/cmdVersion.c.html,
+  xref/cmdVersion.c.src.html, xref/cmdWhatis.c.html, xref/cmdWhatis.c.src.html,
+  xref/cmdXResource.c.html, xref/cmdXResource.c.src.html, xref/cxref.apdx.html,
+  xref/cxref.function, xref/cxref.html, xref/cxref.include, xref/cxref.typedef,
+  xref/cxref.variable, xref/error.c.html, xref/error.c.src.html,
+  xref/getopt.c.html, xref/getopt.c.src.html, xref/init.c.html,
+  xref/init.c.src.html, xref/locate_module.c.html,
+  xref/locate_module.c.src.html, xref/main.c.html, xref/main.c.src.html,
+  xref/utility.c.html, xref/utility.c.src.html, xref/version.c.html,
+  xref/version.c.src.html: Setting up the modules-3-2-9 branch.
+
+2010-07-27  rkowen <rkowen>
+
+  * cmdChdir.c, init/bash_completion.in, testsuite/modulefiles/alias/1.0,
+  testsuite/modulefiles/append/0.1, testsuite/modulefiles/append/0.2,
+  testsuite/modulefiles/append/1.0, testsuite/modulefiles/append/2.1,
+  testsuite/modulefiles/append/2.2, testsuite/modulefiles/break/4.0,
+  testsuite/modulefiles/continue/1.0, testsuite/modulefiles/continue/2.0,
+  testsuite/modulefiles/continue/3.0, testsuite/modulefiles/continue/4.0,
+  testsuite/modulefiles/exit/1.0, testsuite/modulefiles/exit/2.0,
+  testsuite/modulefiles/exit/3.0, testsuite/modulefiles/prepend/0.1,
+  testsuite/modulefiles/prepend/0.2, testsuite/modulefiles/prepend/1.0,
+  testsuite/modulefiles/prepend/2.1, testsuite/modulefiles/prepend/2.2,
+  testsuite/modules.50-cmds/042-append-delim.exp,
+  testsuite/modules.50-cmds/047-app-del-undo.exp,
+  testsuite/modules.50-cmds/052-prepend-delim.exp,
+  testsuite/modules.50-cmds/057-pre-del-undo.exp,
+  testsuite/modules.50-cmds/076-alias-sub.exp,
+  testsuite/modules.50-cmds/175-swap2.exp,
+  testsuite/modules.50-cmds/210-exit.exp,
+  testsuite/modules.50-cmds/220-continue.exp,
+  testsuite/modules.50-cmds/230-loop.exp,
+  testsuite/modules.50-cmds/999-cleanup.exp: Base version is 3-2-0, then merged
+  to 3-2-7.
+
+2006-01-19  rkowen <rkowen>
+
+  * ChangeLog, Makefile.am, modules.lsm.in: Changed from sunsite to ibiblio
+  (same thing though).
+
+2006-01-18  rkowen <rkowen>
+
+  * ChangeLog, xref/config.h.html, xref/config.h.src.html: Updated.
+
+  * xref/cmdModule.c.html, xref/cmdModule.c.src.html, xref/cmdPath.c.html,
+  xref/cmdXResource.c.html, xref/cmdXResource.c.src.html, xref/cxref.apdx.html,
+  xref/cxref.function, xref/modules_def.h.src.html, xref/utility.c.html,
+  xref/utility.c.src.html: Updated.
+
+  * MACHINES, NEWS: News about eliminating --with-force-path.
+
+2006-01-17  rkowen <rkowen>
+
+  * ChangeLog, README, cmdModule.c, configure.ac, modules_def.h, utility.c:
+  Removed the --with-force-path option ... which basically makes sure that PATH
+  and LD_LIBRARY_PATH have some minimum values, given by a couple of
+  MODULE_*_SACRED env.vars.  If you need something like this, then you've
+  probably written your modulefiles wrong!
+
+2006-01-12  rkowen <rkowen>
+
+  * xref/cxref.variable, xref/main.c.html, xref/main.c.src.html,
+  xref/modules_def.h.html, xref/modules_def.h.src.html, xref/version.c.html,
+  xref/version.c.src.html: Updated the cxref docs
+
+  * ChangeLog, version.c: Updated version date.
+
+  * main.c, modules_def.h: Have --version list out the version date also.
+
+  * xref/ModuleCmd_Avail.c.html, xref/ModuleCmd_Avail.c.src.html,
+  xref/ModuleCmd_Clear.c.html, xref/ModuleCmd_Clear.c.src.html,
+  xref/ModuleCmd_Display.c.html, xref/ModuleCmd_Display.c.src.html,
+  xref/ModuleCmd_Help.c.html, xref/ModuleCmd_Help.c.src.html,
+  xref/ModuleCmd_Init.c.html, xref/ModuleCmd_Init.c.src.html,
+  xref/ModuleCmd_List.c.html, xref/ModuleCmd_List.c.src.html,
+  xref/ModuleCmd_Load.c.html, xref/ModuleCmd_Load.c.src.html,
+  xref/ModuleCmd_Purge.c.html, xref/ModuleCmd_Purge.c.src.html,
+  xref/ModuleCmd_Refresh.c.src.html, xref/ModuleCmd_Switch.c.html,
+  xref/ModuleCmd_Switch.c.src.html, xref/ModuleCmd_Update.c.src.html,
+  xref/ModuleCmd_Use.c.html, xref/ModuleCmd_Use.c.src.html,
+  xref/ModuleCmd_Whatis.c.html, xref/ModuleCmd_Whatis.c.src.html,
+  xref/cmdAlias.c.html, xref/cmdAlias.c.src.html, xref/cmdConflict.c.html,
+  xref/cmdConflict.c.src.html, xref/cmdInfo.c.html, xref/cmdInfo.c.src.html,
+  xref/cmdIsLoaded.c.html, xref/cmdIsLoaded.c.src.html, xref/cmdLog.c.html,
+  xref/cmdLog.c.src.html, xref/cmdMisc.c.html, xref/cmdMisc.c.src.html,
+  xref/cmdModule.c.html, xref/cmdModule.c.src.html, xref/cmdPath.c.html,
+  xref/cmdPath.c.src.html, xref/cmdSetenv.c.html, xref/cmdSetenv.c.src.html,
+  xref/cmdTrace.c.html, xref/cmdTrace.c.src.html, xref/cmdUlvl.c.html,
+  xref/cmdUlvl.c.src.html, xref/cmdUname.c.html, xref/cmdUname.c.src.html,
+  xref/cmdVerbose.c.html, xref/cmdVerbose.c.src.html, xref/cmdVersion.c.html,
+  xref/cmdVersion.c.src.html, xref/cmdWhatis.c.html, xref/cmdWhatis.c.src.html,
+  xref/cmdXResource.c.html, xref/cmdXResource.c.src.html, xref/config.h.html,
+  xref/config.h.src.html, xref/error.c.html, xref/error.c.src.html,
+  xref/getopt.c.html, xref/getopt.c.src.html, xref/init.c.html,
+  xref/init.c.src.html, xref/locate_module.c.html,
+  xref/locate_module.c.src.html, xref/main.c.html, xref/main.c.src.html,
+  xref/modules_def.h.html, xref/modules_def.h.src.html, xref/utility.c.html,
+  xref/utility.c.src.html, xref/version.c.src.html: Updated the cxref docs to
+  3.2.0rc4
+
+  * .cvsignore, doc/.cvsignore, etc/.cvsignore, init/.cvsignore: More things to
+  ignore.
+
+  * ModuleCmd_Init.c, NEWS, version.c: Reworked the "module init*" subcommand
+  to handle dot files with multiple "module load" lines.
+
+  * config/emtcl.m4, config/tcl.m4, configure.ac: Reintroduced (or added) the
+  configure options --with-tcl-{versions|lib|include} to allow the user to
+  specify any values which may be missing from the tclConfig.sh script.
+
+  * testsuite/home/.modules, testsuite/home/.modules.save,
+  testsuite/modules.60-initx/005-init.exp,
+  testsuite/modules.60-initx/010-list.exp,
+  testsuite/modules.60-initx/020-add.exp,
+  testsuite/modules.60-initx/030-switch.exp,
+  testsuite/modules.60-initx/040-prepend.exp,
+  testsuite/modules.60-initx/050-rm.exp,
+  testsuite/modules.60-initx/060-2nd.exp,
+  testsuite/modules.60-initx/095-cleanup.exp: Added a test suite for the
+  "module init*" subcommands.
+
+2005-12-15  rkowen <rkowen>
+
+  * ChangeLog, INSTALL: Updating the INSTALL doc for 3.2.0
+
+2005-12-05  rkowen <rkowen>
+
+  * ChangeLog, cvs2cl.pl: Changed the ChangeLog script to not record changes
+  about itself to itself.
+
+  * ChangeLog, Makefile.am, NEWS, cvs2cl.pl, stripmkf, version.c: Added the
+  cvs2cl.pl perl script for generating the ChangeLog semi-automatically.
+  Removed stripmkf - an artifact from older releases.
+
+  * ChangeLog, etc/Makefile.am, ext/Makefile.am: Put the add.modules/add.ext &
+  mkroot scripts under the --prefix bin directory since those scripts are
+  platform independent, and the modules modulefile will point to these scripts.
+
+2005-12-02  rkowen <rkowen>
+
+  * ChangeLog, configure.ac, init/Makefile.am, modulefiles/Makefile.am: Put the
+  init/ scripts under the --exec-prefix directory, because they point to the
+  platform specific modulecmd.
+
+2005-11-30  rkowen <rkowen>
+
+  * ChangeLog, cmdSetenv.c, configure.ac, init/.modulespath.in,
+  modulefiles/Makefile.am, modules_def.h, utility.c, version.c: * Eliminated
+  any warnings caused by using Tcl 8.4 * Fixed any mixed size differences when
+  using ints and pointers. (Only an issue with 64 bit machines.)
+
+2005-11-29  rkowen <rkowen>
+
+  * ModuleCmd_Avail.c, ModuleCmd_Clear.c, ModuleCmd_Display.c,
+  ModuleCmd_Help.c, ModuleCmd_List.c, ModuleCmd_Load.c, ModuleCmd_Switch.c,
+  ModuleCmd_Whatis.c, cmdAlias.c, cmdConflict.c, cmdInfo.c, cmdIsLoaded.c,
+  cmdLog.c, cmdMisc.c, cmdTrace.c, cmdUlvl.c, cmdUname.c, cmdVerbose.c,
+  cmdVersion.c, cmdWhatis.c, error.c, getopt.c, init.c, locate_module.c,
+  main.c, utility.c: Made all the 'First Edition' years to be 4 digits.
+
+  * ModuleCmd_Clear.c, ModuleCmd_Init.c, ModuleCmd_Purge.c,
+  ModuleCmd_Refresh.c, ModuleCmd_Update.c, ModuleCmd_Use.c, cmdAlias.c,
+  cmdConflict.c, cmdInfo.c, cmdIsLoaded.c, cmdLog.c, cmdMisc.c, cmdModule.c,
+  cmdPath.c, cmdSetenv.c, cmdTrace.c, cmdUlvl.c, cmdUname.c, cmdVerbose.c,
+  cmdVersion.c, cmdWhatis.c, cmdXResource.c, init.c, locate_module.c, main.c,
+  modules_def.h, utility.c, version.c: Added the CONST84 qualifier to eliminate
+  compiler warnings, and the side effects.
+
+2005-11-26  rkowen <rkowen>
+
+  * Makefile.am, configure.ac, modules.lsm.in: Updated the LSM and the creation
+  and handling of distribution tarballs.
+
+  * Makefile.am, modulefiles/Makefile.am: Rolled in the Make versioning install
+  fragment from the predeep branch.
+
+2005-11-25  rkowen <rkowen>
+
+  * xref/ModuleCmd_Avail.c.html, xref/ModuleCmd_Display.c.html,
+  xref/ModuleCmd_Refresh.c.html, xref/ModuleCmd_Refresh.c.src.html,
+  xref/ModuleCmd_Update.c.html, xref/ModuleCmd_Update.c.src.html,
+  xref/cmdConflict.c.html, xref/cmdConflict.c.src.html,
+  xref/cmdInfo.c.src.html, xref/cmdModule.c.html, xref/cmdModule.c.src.html,
+  xref/cmdPath.c.html, xref/cmdPath.c.src.html, xref/cmdSetenv.c.html,
+  xref/cmdSetenv.c.src.html, xref/cmdTrace.c.html, xref/cmdTrace.c.src.html,
+  xref/cmdUlvl.c.html, xref/cmdUlvl.c.src.html, xref/cmdWhatis.c.html,
+  xref/config.h.html, xref/config.h.src.html, xref/cxref.apdx.html,
+  xref/cxref.css, xref/cxref.function, xref/cxref.html, xref/cxref.include,
+  xref/cxref.variable, xref/error.c.html, xref/init.c.html, xref/main.c.html,
+  xref/main.c.src.html, xref/modules_def.h.html, xref/modules_def.h.src.html,
+  xref/utility.c.html, xref/version.c.html, xref/version.c.src.html: Updated
+  the cxref docs with the "refresh" changes.
+
+  * configure.ac, testsuite/modules.50-cmds/070-alias-proc.exp,
+  testsuite/modules.50-cmds/075-alias.exp,
+  testsuite/modules.50-cmds/078-refresh.exp: Finished the alias/refresh tests
+  for sourcing a tmpfile, and also the special case for the Bourne shell where
+  funcs and no aliases.
+
+2005-11-22  rkowen <rkowen>
+
+  * ModuleCmd_Refresh.c, ModuleCmd_Update.c, main.c,
+  testsuite/modules.00-init/006-procs.exp,
+  testsuite/modules.50-cmds/070-alias-proc.exp,
+  testsuite/modules.50-cmds/075-alias.exp,
+  testsuite/modules.50-cmds/077-alias-undo.exp,
+  testsuite/modules.50-cmds/078-refresh.exp: Cleaned up the test proc code, and
+  normalized the "refresh" code to the existing standard.
+
+2005-11-21  rkowen <rkowen>
+
+  * ChangeLog, Makefile.am, ModuleCmd_Refresh.c, cmdConflict.c, cmdInfo.c,
+  cmdModule.c, cmdPath.c, cmdSetenv.c, cmdTrace.c, cmdUlvl.c, doc/module.1.in,
+  main.c, modules_def.h: * ModuleCmd_Refresh.c: Like "update" but refreshes
+  only the non-persistent attributes of the currently loaded modules,
+  regardless of the state of the loaded modules (i.e. refresh aliases). (still
+  needs some test code)
+
+  * ChangeLog, cmdConflict.c, version.c: * cmdConflict.c: Fixed memory
+  allocation bug in cmdPrereq(). When there is more than 1 argument to the
+  prereq command, both savedlens and savedlists were indexed past what the
+  initial malloc allowed.
+
+2005-11-15  rkowen <rkowen>
+
+  * .cxref, Makefile.am, xref/ModuleCmd_Avail.c.html,
+  xref/ModuleCmd_Avail.c.src.html, xref/ModuleCmd_Clear.c.html,
+  xref/ModuleCmd_Clear.c.src.html, xref/ModuleCmd_Display.c.html,
+  xref/ModuleCmd_Display.c.src.html, xref/ModuleCmd_Help.c.html,
+  xref/ModuleCmd_Help.c.src.html, xref/ModuleCmd_Init.c.html,
+  xref/ModuleCmd_Init.c.src.html, xref/ModuleCmd_List.c.html,
+  xref/ModuleCmd_List.c.src.html, xref/ModuleCmd_Load.c.html,
+  xref/ModuleCmd_Load.c.src.html, xref/ModuleCmd_Purge.c.html,
+  xref/ModuleCmd_Purge.c.src.html, xref/ModuleCmd_Switch.c.html,
+  xref/ModuleCmd_Switch.c.src.html, xref/ModuleCmd_Update.c.html,
+  xref/ModuleCmd_Update.c.src.html, xref/ModuleCmd_Use.c.html,
+  xref/ModuleCmd_Use.c.src.html, xref/ModuleCmd_Whatis.c.html,
+  xref/ModuleCmd_Whatis.c.src.html, xref/cmdAlias.c.html,
+  xref/cmdAlias.c.src.html, xref/cmdConflict.c.html,
+  xref/cmdConflict.c.src.html, xref/cmdInfo.c.html, xref/cmdInfo.c.src.html,
+  xref/cmdIsLoaded.c.html, xref/cmdIsLoaded.c.src.html, xref/cmdLog.c.html,
+  xref/cmdLog.c.src.html, xref/cmdMisc.c.html, xref/cmdMisc.c.src.html,
+  xref/cmdModule.c.html, xref/cmdModule.c.src.html, xref/cmdPath.c.html,
+  xref/cmdPath.c.src.html, xref/cmdSetenv.c.html, xref/cmdSetenv.c.src.html,
+  xref/cmdTrace.c.html, xref/cmdTrace.c.src.html, xref/cmdUlvl.c.html,
+  xref/cmdUlvl.c.src.html, xref/cmdUname.c.html, xref/cmdUname.c.src.html,
+  xref/cmdVerbose.c.html, xref/cmdVerbose.c.src.html, xref/cmdVersion.c.html,
+  xref/cmdVersion.c.src.html, xref/cmdWhatis.c.html, xref/cmdWhatis.c.src.html,
+  xref/cmdXResource.c.html, xref/cmdXResource.c.src.html, xref/config.h.html,
+  xref/config.h.src.html, xref/cxref.apdx.html, xref/cxref.function,
+  xref/cxref.html, xref/cxref.include, xref/cxref.typedef, xref/cxref.variable,
+  xref/error.c.html, xref/error.c.src.html, xref/getopt.c.html,
+  xref/getopt.c.src.html, xref/getopt.h.html, xref/getopt.h.src.html,
+  xref/index.html, xref/init.c.html, xref/init.c.src.html,
+  xref/locate_module.c.html, xref/locate_module.c.src.html,
+  xref/main.c.src.html, xref/modules_def.h.html, xref/modules_def.h.src.html,
+  xref/utility.c.html, xref/utility.c.src.html, xref/version.c.html,
+  xref/version.c.src.html: Updated the cxref docs
+
+2005-11-14  rkowen <rkowen>
+
+  * ChangeLog, Makefile.am, ModuleCmd_Avail.c, ModuleCmd_Bootstrap.c,
+  ModuleCmd_Init.c, ModuleCmd_List.c, ModuleCmd_Update.c, ModuleCmd_Use.c,
+  README, acinclude.m4, cmdConflict.c, cmdInfo.c, cmdIsLoaded.c, cmdModule.c,
+  cmdPath.c, cmdTrace.c, cmdUlvl.c, cmdVersion.c, config/tcl.m4, configure.ac,
+  doc/module.1.in, error.c, init.c, lib/.cvsignore, lib/Makefile.am,
+  lib/avec.h, lib/avec.man, lib/avec/.cvsignore, lib/avec/avec_.c,
+  lib/avec/avec_.h, lib/avec/avec_accessor.c, lib/avec/avec_alloc.c,
+  lib/avec/avec_close.c, lib/avec/avec_ctor.c, lib/avec/avec_dealloc.c,
+  lib/avec/avec_decrease.c, lib/avec/avec_delete.c, lib/avec/avec_dtor.c,
+  lib/avec/avec_increase.c, lib/avec/avec_init.c, lib/avec/avec_insert.c,
+  lib/avec/avec_keys.c, lib/avec/avec_lookup.c, lib/avec/avec_remove.c,
+  lib/avec/avec_resize.c, lib/avec/avec_resize_percentage.c,
+  lib/avec/avec_set_fns.c, lib/avec/avec_values.c, lib/avec/avec_walk.c,
+  lib/avec/avec_walk_r.c, lib/configure.ac, lib/iprime.h, lib/iprime.man,
+  lib/iprime/.cvsignore, lib/iprime/chprime.c, lib/iprime/hprime.c,
+  lib/iprime/iprime.c, lib/iprime/iprime_.h, lib/iprime/iprime_lut.c,
+  lib/iprime/lprime.c, lib/iprime/scprime.c, lib/iprime/ucprime.c,
+  lib/iprime/uhprime.c, lib/iprime/uiprime.c, lib/iprime/ulprime.c,
+  lib/isqrt.h, lib/isqrt.man, lib/isqrt/.cvsignore, lib/isqrt/chsqrt.c,
+  lib/isqrt/hsqrt.c, lib/isqrt/isqrt.c, lib/isqrt/isqrt_.h,
+  lib/isqrt/isqrt_lut.c, lib/isqrt/lsqrt.c, lib/isqrt/scsqrt.c,
+  lib/isqrt/ucsrt.c, lib/isqrt/uhsqrt.c, lib/isqrt/uisqrt.c,
+  lib/isqrt/ulsqrt.c, lib/list.h, lib/list.man, lib/list/.cvsignore,
+  lib/list/list_.c, lib/list/list_.h, lib/list/list_append.c,
+  lib/list/list_ctor.c, lib/list/list_delete.c, lib/list/list_dtor.c,
+  lib/list/list_exists.c, lib/list/list_first.c, lib/list/list_insert.c,
+  lib/list/list_last.c, lib/list/list_number.c, lib/list/list_pop.c,
+  lib/list/list_push.c, lib/list/list_qsort.c, lib/list/list_shift.c,
+  lib/list/list_sizeof.c, lib/list/list_swap.c, lib/list/list_unshift.c,
+  lib/memdebug.c, lib/memdebug.h, lib/memdebug.man, lib/strmalloc.c,
+  lib/strmalloc.h, lib/strmalloc.man, lib/tests/.cvsignore,
+  lib/tests/Makefile.am, lib/tests/tavec.c, lib/tests/tiprime.c,
+  lib/tests/tisqrt.c, lib/tests/tstrmalloc.c, lib/tests/tuvec.c, lib/uvec.h,
+  lib/uvec.man, lib/uvec/.cvsignore, lib/uvec/str2uvec.c, lib/uvec/uvec2str.c,
+  lib/uvec/uvec2uvec.c, lib/uvec/uvec_accessor.c, lib/uvec/uvec_add.c,
+  lib/uvec/uvec_alloc.c, lib/uvec/uvec_close.c, lib/uvec/uvec_copy.c,
+  lib/uvec/uvec_copy_str.c, lib/uvec/uvec_copy_vec.c,
+  lib/uvec/uvec_count_tok.c, lib/uvec/uvec_ctor.c, lib/uvec/uvec_dealloc.c,
+  lib/uvec/uvec_dtor.c, lib/uvec/uvec_init.c, lib/uvec/uvec_insert.c,
+  lib/uvec/uvec_push.c, lib/uvec/uvec_randomize.c, lib/uvec/uvec_reverse.c,
+  lib/uvec/uvec_shift.c, lib/uvec/uvec_sort.c, lib/uvec/uvec_strfns.c,
+  lib/uvec/uvec_strfree.c, lib/uvec/vec2uvec.c, locate_module.c, main.c,
+  modulefiles/module-cvs.in, modules_def.h, testsuite/.cvsignore,
+  testsuite/config/unix.exp, testsuite/modules.00-init/005-init_ts.exp,
+  testsuite/modules.00-init/006-procs.exp,
+  testsuite/modules.00-init/010-environ.exp,
+  testsuite/modules.00-init/015-version.exp,
+  testsuite/modules.00-init/030-shells.exp,
+  testsuite/modules.00-init/050-modpath.exp,
+  testsuite/modules.00-init/080-begenv.exp,
+  testsuite/modules.20-locate/040-alias.exp,
+  testsuite/modules.20-locate/045-symvers.exp,
+  testsuite/modules.20-locate/046-getsym.exp,
+  testsuite/modules.20-locate/047-symerrs.exp,
+  testsuite/modules.20-locate/048-symexec.exp,
+  testsuite/modules.20-locate/050-locrc.exp,
+  testsuite/modules.20-locate/060-rc.exp,
+  testsuite/modules.20-locate/070-homerc.exp,
+  testsuite/modules.30-userlvl/040-advanced.exp,
+  testsuite/modules.30-userlvl/045-adv.exp,
+  testsuite/modules.30-userlvl/050-expert.exp,
+  testsuite/modules.30-userlvl/055-exp.exp,
+  testsuite/modules.35-trace/010-init_ts.exp,
+  testsuite/modules.35-trace/020-default.exp,
+  testsuite/modules.35-trace/030-all-on.exp,
+  testsuite/modules.35-trace/031-all-off.exp,
+  testsuite/modules.35-trace/040-load-all.exp,
+  testsuite/modules.35-trace/041-load-all.exp,
+  testsuite/modules.35-trace/042-load-on.exp,
+  testsuite/modules.35-trace/043-load-onoff.exp,
+  testsuite/modules.35-trace/044-load-ovr.exp,
+  testsuite/modules.35-trace/050-disp-onoff.exp,
+  testsuite/modules.35-trace/060-dilo-onoff.exp,
+  testsuite/modules.35-trace/070-colon.exp,
+  testsuite/modules.35-trace/095-cleanup.exp,
+  testsuite/modules.50-cmds/015-use.exp,
+  testsuite/modules.50-cmds/017-use-undo.exp,
+  testsuite/modules.50-cmds/020-setenv.exp,
+  testsuite/modules.50-cmds/022-setenv-eschars.exp,
+  testsuite/modules.50-cmds/025-setenv-undo.exp,
+  testsuite/modules.50-cmds/030-unsetenv.exp,
+  testsuite/modules.50-cmds/035-unsetenv-undo.exp,
+  testsuite/modules.50-cmds/036-unsetenv-x.exp,
+  testsuite/modules.50-cmds/040-append.exp,
+  testsuite/modules.50-cmds/045-append-undo.exp,
+  testsuite/modules.50-cmds/050-prepend.exp,
+  testsuite/modules.50-cmds/055-prepend-undo.exp,
+  testsuite/modules.50-cmds/060-remove.exp,
+  testsuite/modules.50-cmds/065-remove-undo.exp,
+  testsuite/modules.50-cmds/070-alias-proc.exp,
+  testsuite/modules.50-cmds/075-alias.exp,
+  testsuite/modules.50-cmds/077-alias-undo.exp,
+  testsuite/modules.50-cmds/080-info-name.exp,
+  testsuite/modules.50-cmds/081-info-user.exp,
+  testsuite/modules.50-cmds/082-info-user-exp.exp,
+  testsuite/modules.50-cmds/083-info-mode.exp,
+  testsuite/modules.50-cmds/084-info-mode-exp.exp,
+  testsuite/modules.50-cmds/085-info-flags.exp,
+  testsuite/modules.50-cmds/086-info-shells.exp,
+  testsuite/modules.50-cmds/087-info-shells-exp.exp,
+  testsuite/modules.50-cmds/088-info-isloaded.exp,
+  testsuite/modules.50-cmds/095-uname.exp,
+  testsuite/modules.50-cmds/101-badfac.exp,
+  testsuite/modules.50-cmds/110-verbose.exp,
+  testsuite/modules.50-cmds/115-verbose-msg.exp,
+  testsuite/modules.50-cmds/120-prereq-full.exp,
+  testsuite/modules.50-cmds/121-prereq-module.exp,
+  testsuite/modules.50-cmds/130-conflict-full.exp,
+  testsuite/modules.50-cmds/131-conflict-module.exp,
+  testsuite/modules.50-cmds/140-system.exp,
+  testsuite/modules.50-cmds/150-module.exp,
+  testsuite/modules.50-cmds/170-swap.exp,
+  testsuite/modules.50-cmds/190-load.exp,
+  testsuite/modules.50-cmds/200-break.exp,
+  testsuite/modules.70-maint/020-update.exp,
+  testsuite/modules.70-maint/030-purge.exp,
+  testsuite/modules.70-maint/050-whatis-load.exp,
+  testsuite/modules.70-maint/060-apropos.exp,
+  testsuite/modules.70-maint/095-cleanup.exp,
+  testsuite/modules.95-version/020-load.exp,
+  testsuite/modules.95-version/020-unload.exp,
+  testsuite/modules.95-version/022-load2.exp,
+  testsuite/modules.95-version/022-unload2.exp,
+  testsuite/modules.95-version/040-xgetenv.exp,
+  testsuite/modules.95-version/999-cleanup.exp, utility.c, version.c: Merged in
+  the modules_3_2_predeep_branch branch to the main trunk. Removed the hash
+  library.
+
+2004-11-18  lakata <lakata>
+
+  * tcl/README-EMACS.txt, tcl/init/.cvsignore, tcl/init/lisp.in: submitted by
+  tbennett@nvidia.com
+
+  * tcl/init/Makefile, tcl/modulecmd.tcl: patch for Emacs from
+  tbennett@nvidia.com
+
+2004-05-25  sirdude <sirdude>
+
+  * tcl/init/bash.in, tcl/init/csh.in, tcl/init/ksh.in, tcl/init/perl.in,
+  tcl/init/python.in, tcl/init/sh.in, tcl/init/tcsh.in, tcl/init/zsh.in: tcl
+  version of modules now looks at environment var TCLSH if it exits and uses
+  that first.  Suggested by David Astrom.  Kent
+
+2004-01-16  sirdude <sirdude>
+
+  * tcl/Makefile, testsuite/config/unix.exp: Made it so that the testsuite
+  works with the tcl version of modules. Current stats for the tcl version are:
+  # of expected passes            146 # of unexpected failures        376  Not
+  too shabby, I'm guessing it will be fairly straight forward to increase this
+  by quite a bit.  Kent
+
+2004-01-15  sirdude <sirdude>
+
+  * tcl/init/bash.in, tcl/init/csh.in, tcl/init/ksh.in, tcl/init/perl.in,
+  tcl/init/python.in, tcl/init/sh.in, tcl/init/tcsh.in, tcl/init/zsh.in:
+  Modified the tcl init files so that they try to find tclsh, this should make
+  them quite a bit faster assuming they find it. (This way it locates the shell
+  just once instead of for every single command.)  Kent
+
+2003-07-30  lakata <lakata>
+
+  * tcl/README.txt, tcl/modulecmd.tcl: version 0.98: fixed a bug in the
+  error_count (missing closing brace). also implemented check to abort the
+  tempfile sourcing if the tempfile is empty. this is to be more blackboxish,
+  avoiding relying on the shell to do a clean up. one of our users is not using
+  the module command correctly, and it is created a whole bunch of empty
+  /tmp/modulescript files in the /tmp dir.
+
+2003-07-10  harlan <harlan>
+
+  * ChangeLog, tcl/modulecmd.tcl: * tcl/modulecmd.tcl: If g_force is set,
+  ignore *_modshare.  When we produce a shell function, preface the definition
+  with "function" in case it's already defined.  Default g_force to 1 now.
+
+2003-05-30  lakata <lakata>
+
+  * tcl/init/README.txt, tcl/init/bash.in, tcl/init/csh.in, tcl/init/ksh.in,
+  tcl/init/modulerc, tcl/init/perl.in, tcl/init/sh.in, tcl/init/tcsh.in,
+  tcl/init/zsh.in: changed the way MODULEPATH is set up. since this is another
+  environment variable like all the others, it is now set using the module
+  command itself. pretty sneaky, huh?
+
+2003-03-28  lakata <lakata>
+
+  * tcl/README.txt, tcl/modulecmd.tcl: changes for cygwin. files should not
+  have cr/lf (DOS) endings.
+
+  * tcl/init/Makefile, tcl/init/README.txt, tcl/init/bash, tcl/init/bash.in,
+  tcl/init/csh, tcl/init/csh.in, tcl/init/ksh, tcl/init/ksh.in, tcl/init/perl,
+  tcl/init/perl.in, tcl/init/python, tcl/init/python.in, tcl/init/sh,
+  tcl/init/sh.in, tcl/init/tcsh, tcl/init/tcsh.in, tcl/init/zsh,
+  tcl/init/zsh.in: made init files more general
+
+2002-11-29  lakata <lakata>
+
+  * tcl/README.txt, tcl/init/bash, tcl/init/csh, tcl/init/ksh, tcl/init/perl,
+  tcl/init/python, tcl/init/sh, tcl/init/tcsh, tcl/init/zsh,
+  tcl/init/zsh.debug, tcl/modulecmd.tcl: first check in
+
+2002-09-18  harlan <harlan>
+
+  * ChangeLog, Makefile.am, lib/.cvsignore, lib/Makefile.am,
+  lib/tests/Makefile.am: * Makefile.am (modulecmd_CFLAGS): Use X_CFLAGS and
+  TCL_INCLUDES.  * lib/tests/Makefile.am (EXTRA_PROGRAMS): Renamed from
+  noinst_PROGRAMS.  Lose the .x suffixes.  * lib/Makefile.am (ACLOCAL_AMFLAGS):
+  Look in ../config/ .
+
+2002-09-16  rkowen <rkowen>
+
+  * ChangeLog, Makefile.am, ModuleCmd_List.c, TODO, colcomp.c, configure.ac,
+  lib/uvec.man, locate_module.c, main.c, modules_def.h, utility.c: 2002-09-16 
+  R.K. Owen	<rk@owen.sj.ca.us> * colcomp.c: removed * utility.c: added
+  colcomp.c contents * Makefile.am: removed colcomp.c * main.c: Added
+  DEF_COLLATE_BY_NUMBER output for --version * configure.ac: changed
+  USE_COLCOMP to DEF_COLLATE_BY_NUMBER, and added memdebug * locate_module.c:
+  changed USE_COLCOMP and GetModuleName for deep dirs. * modules_def.h: check
+  for HAVE_CONFIG_H, and added memdebug * ModuleCmd_List.c: Simplified using
+  uvec objects
+
+2002-09-13  rkowen <rkowen>
+
+  * ChangeLog, config/.cvsignore, init/.cvsignore: 2002-09-12  R.K.
+  Owen	<rk@owen.sj.ca.us> * config/.cvsignore: New File: Ignore autogenerated
+  files. * init/.cvsignore: Ignore autogenerated files.
+
+  * .cvsignore, ChangeLog, doc/.cvsignore, etc/.cvsignore, ext/.cvsignore,
+  lib/.cvsignore, lib/tests/.cvsignore, lib/tests/Makefile.am,
+  modulefiles/.cvsignore: 2002-09-12  R.K. Owen	<rk@owen.sj.ca.us> *
+  .cvsignore: Ignore autogenerated files. * doc/.cvsignore: Ignore
+  autogenerated files. * etc/.cvsignore: Ignore autogenerated files. *
+  ext/.cvsignore: Ignore autogenerated files. * lib/.cvsignore: Ignore
+  autogenerated files. * lib/tests/.cvsignore: Ignore autogenerated files. *
+  modulefiles/.cvsignore: Ignore autogenerated files. * lib/tests/Makefile.am:
+  Tweeked for autoreconf
+
+  * ChangeLog, README, lib/Makefile.am, lib/aclocal.m4, lib/configure.ac,
+  lib/tests/tuvec.c, lib/uvec.h, lib/uvec/uvec_copy_str.c,
+  lib/uvec/uvec_strfree.c: 2002-09-12  R.K. Owen	<rk@owen.sj.ca.us> * README:
+  Updated the anonymous CVS invocation. * lib/aclocal.m4: Deleted auto*
+  generated file. * lib/configure.ac: Tweeked to autoreconf * lib/Makefile.am:
+  Tweeked to autoreconf * lib/uvec.h: Added uvec_strfree *
+  lib/uvec/uvec_copy_str.c: Uses uvec string fns * lib/uvec/uvec_copy_vec.c:
+  Uses uvec string fns * lib/uvec/uvec_strfree.c: New file: to dealloc
+  uvec2str() generated strings * lib/tests/tuvec.c: Updated for uvec changes
+
+2002-09-12  harlan <harlan>
+
+  * doc/Makefile.am, lib/config.h.in, lib/configure: * doc/Makefile.am: Added
+  file.  * lib/configure: Remove auto*-generated file. * lib/config.h.in:
+  Ditto.
+
+  * ChangeLog, Makefile.in, README, aclocal.m4, config.h.in, config/compile,
+  config/depcomp, config/install-sh, config/missing, config/mkinstalldirs,
+  configure, doc/Makefile.in, etc/Makefile.in, ext/Makefile.in,
+  init/Makefile.in, lib/Makefile.in, lib/tests/Makefile.in,
+  modulefiles/Makefile.in: * README: Update the instructions for using the CVS
+  version of modules.  * modulefiles/Makefile.in: Deleted auto* generated file.
+  * lib/tests/Makefile.in: Ditto. * lib/Makefile.in: Ditto. * init/Makefile.in:
+  Ditto. * ext/Makefile.in: Ditto. * etc/Makefile.in: Ditto. * doc/Makefile.in:
+  Ditto. * config/mkinstalldirs: Ditto. * config/missing: Ditto. *
+  config/install-sh: Ditto. * config/depcomp: Ditto. * config/compile: Ditto. *
+  configure: Ditto. * config.h.in: Ditto. * aclocal.m4: Ditto. * Makefile.in:
+  Ditto.
+
+  * Makefile.am, ModuleCmd_Avail.c, NEWS, colcomp.c, configure.ac,
+  lib/Makefile, locate_module.c: * colcomp.c: New file.  Alternative collating
+  algorithm that sorts numeric substrings numerically (mostly).  *
+  lib/Makefile: Remove auto*-generated file.  * locate_module.c
+  (SortedDirList): Ignore SCCS/ subdirs, too.  * configure.ac: Disable our
+  "look" for RUNTEST; it drives auto* crazy.  Added the
+  --with-file-collate={string,number} test, which provides a way to enable
+  USE_COLCOMP.  * ModuleCmd_Avail.c (fi_ent_cmp): USE_COLCOMP when told to do
+  so. * locate_module.c (filename_compare): Ditto.  * Makefile.am
+  (modulecmd_LDFLAGS): lib is in the builddir, not the srcdir.
+  (modulecmd_SOURCES): Added colcomp.c .
+
+  * ChangeLog, NEWS: Rename ChangeLog to NEWS.
+
+2002-08-27  rkowen <rkowen>
+
+  * lib/Makefile, lib/Makefile.am, lib/Makefile.in, lib/memdebug.c,
+  lib/memdebug.h, lib/memdebug.man, lib/tests/Makefile.in: Added the memdebug
+  headerfile and sources.
+
+2002-08-22  rkowen <rkowen>
+
+  * cmdVersion.c, locate_module.c, modules_def.h: Fixed up GetDefault to handle
+  .modulerc and .version files, where the latter will read the env.var. defined
+  in .version and do a module-version so that the modlist data can be updated.
+  These mods handle deep dirs on "module load" ... now need to fix up the rest!
+  There's also now an amazing amount of cruft to weed out.
+
+2002-08-14  lakata <lakata>
+
+  * locate_module.c, modules_def.h: removed compiler warnings about const char*
+
+  * configure, configure.ac: added hack for linux that cant do -lX11 with
+  -L/usr/X11R6/lib
+
+  * cmdInfo.c, cmdVersion.c: removed compiler warnings
+
+2002-08-02  rkowen <rkowen>
+
+  * Makefile.am, Makefile.in, ModuleCmd_Avail.c, ModuleCmd_Display.c,
+  ModuleCmd_Init.c, ModuleCmd_Load.c, ModuleCmd_Switch.c, aclocal.m4,
+  cmdConflict.c, cmdInfo.c, cmdIsLoaded.c, cmdPath.c, cmdVersion.c, configure,
+  configure.ac, error.c, etc/Makefile.in, ext/Makefile.in, init/Makefile.in,
+  locate_module.c, main.c, modulefiles/Makefile.in, modules_def.h,
+  testsuite/modules.00-init/080-begenv.exp, utility.c: A whole slew of changes
+  progressing to deap modulefile directories. The current is not usuable, but
+  will eventually be. These changes are checked in for safe keeping while
+  R.K.Owen is on vacation.
+
+  * xref/ModuleCmd_Avail.c.html, xref/ModuleCmd_Clear.c.html,
+  xref/ModuleCmd_Display.c.html, xref/ModuleCmd_Help.c.html,
+  xref/ModuleCmd_Init.c.html, xref/ModuleCmd_List.c.html,
+  xref/ModuleCmd_Load.c.html, xref/ModuleCmd_Purge.c.html,
+  xref/ModuleCmd_Switch.c.html, xref/ModuleCmd_Update.c.html,
+  xref/ModuleCmd_Use.c.html, xref/ModuleCmd_Whatis.c.html,
+  xref/cmdAlias.c.html, xref/cmdConflict.c.html, xref/cmdInfo.c.html,
+  xref/cmdIsLoaded.c.html, xref/cmdLog.c.html, xref/cmdMisc.c.html,
+  xref/cmdModule.c.html, xref/cmdPath.c.html, xref/cmdSetenv.c.html,
+  xref/cmdTrace.c.html, xref/cmdUlvl.c.html, xref/cmdUname.c.html,
+  xref/cmdVerbose.c.html, xref/cmdVersion.c.html, xref/cmdWhatis.c.html,
+  xref/cxref.apdx.html, xref/cxref.function, xref/cxref.html,
+  xref/cxref.include, xref/cxref.typedef, xref/cxref.variable,
+  xref/error.c.html, xref/getopt.c.html, xref/init.c.html,
+  xref/locate_module.c.html, xref/main.c.html, xref/utility.c.html,
+  xref/version.c.html: Updated the xref html, but not current.
+
+  * lib/Makefile, lib/Makefile.in, lib/uvec.h, lib/uvec.man,
+  lib/uvec/uvec_copy_str.c, lib/uvec/uvec_copy_vec.c, lib/uvec/uvec_strfns.c:
+  Changed how uvec sets/gets the uvec_strfns.
+
+2002-07-29  rkowen <rkowen>
+
+  * lib/Makefile.am, lib/list.h, lib/list.man, lib/list/.cvsignore,
+  lib/list/list_.c, lib/list/list_.h, lib/list/list_append.c,
+  lib/list/list_ctor.c, lib/list/list_delete.c, lib/list/list_dtor.c,
+  lib/list/list_exists.c, lib/list/list_first.c, lib/list/list_insert.c,
+  lib/list/list_last.c, lib/list/list_number.c, lib/list/list_pop.c,
+  lib/list/list_push.c, lib/list/list_qsort.c, lib/list/list_shift.c,
+  lib/list/list_sizeof.c, lib/list/list_swap.c, lib/list/list_unshift.c: Added
+  the list object for doubly linked lists.
+
+2002-07-18  rkowen <rkowen>
+
+  * lib/Makefile, lib/Makefile.am, lib/aclocal.m4, lib/configure,
+  lib/configure.ac, lib/tests/.cvsignore, lib/tests/Makefile.am,
+  lib/tests/Makefile.in: Adding in the automake/autoconf files for the modules
+  library.
+
+  * lib/strmalloc.c, lib/strmalloc.h, lib/strmalloc.man,
+  lib/tests/tstrmalloc.c: Added the strmalloc code to the modules library, this
+  will be useful for creating new strings with aliases expanded.
+
+  * lib/.cvsignore, lib/tests/tuvec.c, lib/uvec.h, lib/uvec.man,
+  lib/uvec/.cvsignore, lib/uvec/str2uvec.c, lib/uvec/uvec2str.c,
+  lib/uvec/uvec2uvec.c, lib/uvec/uvec_accessor.c, lib/uvec/uvec_add.c,
+  lib/uvec/uvec_alloc.c, lib/uvec/uvec_close.c, lib/uvec/uvec_copy.c,
+  lib/uvec/uvec_copy_str.c, lib/uvec/uvec_copy_vec.c,
+  lib/uvec/uvec_count_tok.c, lib/uvec/uvec_ctor.c, lib/uvec/uvec_dealloc.c,
+  lib/uvec/uvec_dtor.c, lib/uvec/uvec_init.c, lib/uvec/uvec_insert.c,
+  lib/uvec/uvec_push.c, lib/uvec/uvec_randomize.c, lib/uvec/uvec_reverse.c,
+  lib/uvec/uvec_shift.c, lib/uvec/uvec_sort.c, lib/uvec/uvec_strfns.c,
+  lib/uvec/vec2uvec.c: Added the uvec code, which provides basic unix vector
+  capabilities. A unix vector is a NULL terminated array of char * strings. An
+  example of this is *argv[] or *environ[].
+
+  * lib/isqrt.h, lib/isqrt.man, lib/isqrt/.cvsignore, lib/isqrt/chsqrt.c,
+  lib/isqrt/hsqrt.c, lib/isqrt/isqrt.c, lib/isqrt/isqrt_.h,
+  lib/isqrt/isqrt_lut.c, lib/isqrt/lsqrt.c, lib/isqrt/scsqrt.c,
+  lib/isqrt/ucsrt.c, lib/isqrt/uhsqrt.c, lib/isqrt/uisqrt.c,
+  lib/isqrt/ulsqrt.c, lib/tests/tisqrt.c: Adding in the isqrt code to the
+  modules library, this is needed by iprime (which is needed by avec).
+
+  * lib/iprime.h, lib/iprime.man, lib/iprime/.cvsignore, lib/iprime/chprime.c,
+  lib/iprime/hprime.c, lib/iprime/iprime.c, lib/iprime/iprime_.h,
+  lib/iprime/iprime_lut.c, lib/iprime/lprime.c, lib/iprime/scprime.c,
+  lib/iprime/ucprime.c, lib/iprime/uhprime.c, lib/iprime/uiprime.c,
+  lib/iprime/ulprime.c, lib/tests/tiprime.c: Added the iprime code to the
+  modules library.  This is needed by avec to compute the optimal hash size.
+
+  * lib/avec.h, lib/avec.man, lib/avec/.cvsignore, lib/avec/avec_.c,
+  lib/avec/avec_.h, lib/avec/avec_accessor.c, lib/avec/avec_alloc.c,
+  lib/avec/avec_close.c, lib/avec/avec_ctor.c, lib/avec/avec_dealloc.c,
+  lib/avec/avec_decrease.c, lib/avec/avec_delete.c, lib/avec/avec_dtor.c,
+  lib/avec/avec_increase.c, lib/avec/avec_init.c, lib/avec/avec_insert.c,
+  lib/avec/avec_keys.c, lib/avec/avec_lookup.c, lib/avec/avec_remove.c,
+  lib/avec/avec_resize.c, lib/avec/avec_resize_percentage.c,
+  lib/avec/avec_set_fns.c, lib/avec/avec_values.c, lib/avec/avec_walk.c,
+  lib/avec/avec_walk_r.c, lib/tests/tavec.c: Added an associative vector object
+  to the modules library.
+
+2002-06-17  rkowen <rkowen>
+
+  * RKOConfigure, locate_module.c: Minor changes in preparation for big ones.
+
+  * ChangeLog, ModuleCmd_Avail.c, ModuleCmd_Update.c, ModuleCmd_Use.c,
+  config.h.in, configure, configure.ac, doc/module.1.in, error.c, init.c,
+  main.c, modules_def.h, testsuite/config/unix.exp,
+  testsuite/modules.00-init/006-procs.exp,
+  testsuite/modules.00-init/080-begenv.exp,
+  testsuite/modules.70-maint/020-update.exp: * Made the .modulesbeginenv
+  facility optional (default is not to have it) * default for cache is now "no"
+  * Added version_test() to testsuite to make some of the tests conditional on
+  the values generated by --version. - the configure options help is formatted
+  with AC_HELP_STRING
+
+2002-06-14  rkowen <rkowen>
+
+  * .cvsignore, ChangeLog, Makefile.am, Makefile.in, config.h.in,
+  config/compile, configure, configure.ac, doc/Makefile.in, etc/.cvsignore,
+  etc/Makefile.am, etc/Makefile.in, ext/.cvsignore, ext/Makefile.am,
+  ext/Makefile.in, init/Makefile.am, init/Makefile.in, init/filter,
+  init/zsh.in, modulefiles/Makefile.am, modulefiles/Makefile.in,
+  testsuite/etc/.cvsignore: * Reworked every configure-based file - uses
+  automake to generate most of the Makefile.in - renamed configure.in to
+  configure.ac per autoconf - Versioning is optional now with a configure
+  option - reworked the init scripts for versioning or not - eliminated
+  acconfig.h and put templates in configure.ac - make install now honors the
+  DESTDIR variable for package builds - honors bindir for modulecmd location
+  (but the init scripts are only correct if no versioning) * Collected the
+  usage info and now it can be displayed with the --help or -H option (same as
+  help) * --version now gives most of the optional configure parameters for
+  easy debugging of problems * Fixed bootstrap to just source the appropriate
+  init script
+
+  * Makefile.am, Makefile.in, acconfig.h, config.h.in, configure, configure.ac,
+  etc/Makefile.am, etc/Makefile.in, etc/add.modules.in, etc/global/bashrc.in,
+  etc/global/csh.cshrc.in, etc/skel/.cshrc.in, etc/skel/.kshenv.in,
+  ext/Makefile.am, ext/Makefile.in, ext/add.ext.in, ext/common/.cshrc.in,
+  ext/common/.kshenv.in, init/.modulespath.in, init/bash.in, init/csh.in,
+  init/ksh.in, init/perl.in, init/python.in, init/sh.in, init/zsh.in: Removed
+  the acconfig.h file since it's essentially in the configure.ac now. Reworked
+  all the init,skel,add.* files to handle versioning or no. Added Makefile.am
+  to ./etc/ and ./ext/ for cleaner installs.
+
+2002-06-13  rkowen <rkowen>
+
+  * Makefile.am, Makefile.in, ModuleCmd_Help.c, acconfig.h, config.h.in,
+  doc/module.1.in, main.c, modules_def.h,
+  testsuite/modules.00-init/015-version.exp: The version info displays some of
+  the configuration options. Moved the usage info into module_usage() that can
+  be displayed with the --help or -H switch.
+
+  * Makefile.am, Makefile.in, ModuleCmd_Whatis.c, acconfig.h, config.h.in,
+  configure, configure.ac, main.c: Renamed INSTPATH to PREFIX and is no longer
+  passed as a compiler -D argument, but is now entered directly into the
+  config.h header.
+
+2002-06-12  rkowen <rkowen>
+
+  * Makefile.am, Makefile.in, ModuleCmd_Bootstrap.c, init.c, main.c,
+  modules_def.h, utility.c: Converted the configure scripts over to
+  automake,autoconf generation. Modified "module bootstrap" to source the init
+  files. Put the shell properties and moved set_derelict and renamed it
+  set_shell_properties into init.c . Created a matrix of shell properties {
+  name, derelict, init, cmd separator }.
+
+  * testsuite/etc/apropos.cache, testsuite/modules.50-cmds/095-uname.exp: Fixed
+  test syntax - it didn't like "dangling" ('s and )'s in regexp string. Just
+  escaped them. Removed apropos.cache - it gets regenerated with each test.
+
+  * ModuleCmd_Switch.c, testsuite/modules.50-cmds/170-swap.exp: Fixed up
+  "module switch" one argument form (use stringer alloc) and added more tests
+  (one for each of the major shells).
+
+2002-06-11  rkowen <rkowen>
+
+  * acconfig.h, config.h.in, configure, configure.ac: Added MODULES_INIT_DIR to
+  the configure files.
+
+2002-06-10  rkowen <rkowen>
+
+  * Makefile.am, Makefile.in, ModuleCmd_Bootstrap.c, acconfig.h, acinclude.m4,
+  aclocal.m4, config.h.in, configure, configure.ac: Upgraded the
+  auto-configuration to use automake/1.6 and autoconf/2.53 to auto-generate
+  some of the files.
+
+  * init/bash.in, init/csh.in, init/ksh.in, init/perl.in, init/sh.in,
+  init/zsh.in: Re-introduced the init files with versioning.
+
+  * config/depcomp, config/install-sh, config/install.sh, config/missing,
+  config/mkinstalldirs: Upgraded install scripts to automake/1.6 autoconf/2.53
+  standards.
+
+2002-06-06  rkowen <rkowen>
+
+  * configure.ac, configure.in: configure.ac is actually the continuation of
+  configure.in. do "cvs log configure.in" for a history.
+  ---------------------------- revision 1.11 (of configure.in) date: 2002/04/29
+  21:16:48;  author: rkowen;  state: Exp;  lines: +145 -116 * Upgraded
+  configure.in to autoconf 2.52.  * Changed  the configure to search for
+  libTcl.sh to acquire all it's necessary Tcl env.vars from it.
+
+2002-05-06  rkowen <rkowen>
+
+  * .cvsignore, doc/.cvsignore, etc/.cvsignore, etc/global/.cvsignore,
+  etc/skel/.cvsignore, ext/.cvsignore, ext/common/.cvsignore, init/.cvsignore,
+  modulefiles/.cvsignore, testsuite/.cvsignore: Added a bunch of .cvsignore
+  files to avoid CVS in listing the known (but made) files.
+
+2002-05-03  rkowen <rkowen>
+
+  * testsuite/modulefiles/eschars/1.0,
+  testsuite/modules.35-trace/010-init_ts.exp,
+  testsuite/modules.35-trace/030-all-on.exp,
+  testsuite/modules.35-trace/031-all-off.exp,
+  testsuite/modules.35-trace/040-load-all.exp,
+  testsuite/modules.35-trace/041-load-all.exp,
+  testsuite/modules.35-trace/042-load-on.exp,
+  testsuite/modules.35-trace/043-load-onoff.exp,
+  testsuite/modules.35-trace/044-load-ovr.exp,
+  testsuite/modules.35-trace/050-disp-onoff.exp,
+  testsuite/modules.35-trace/060-dilo-onoff.exp,
+  testsuite/modules.35-trace/070-colon.exp,
+  testsuite/modules.50-cmds/022-setenv-eschars.exp,
+  testsuite/modules.50-cmds/095-uname.exp,
+  testsuite/modules.50-cmds/120-prereq-full.exp,
+  testsuite/modules.50-cmds/121-prereq-module.exp, utility.c: Added
+  EscapePerlString to utility.c, added '*' to list of csh special chars. Fixed
+  up tests to reflect these changes. Added
+  	testsuite/modules.50-cmds/022-setenv-eschars.exp to test out escaping
+  special chars.
+
+2002-04-30  rkowen <rkowen>
+
+  * install.sh, version.c: Moved install.sh to config/ and updated the version
+  to 3.2.0a .
+
+2002-04-29  rkowen <rkowen>
+
+  * ChangeLog, Makefile.in, ModuleCmd_Avail.c, ModuleCmd_Init.c,
+  ModuleCmd_Load.c, ModuleCmd_Purge.c, ModuleCmd_Switch.c, ModuleCmd_Update.c,
+  ModuleCmd_Whatis.c, aclocal.m4, cmdConflict.c, cmdLog.c, cmdModule.c,
+  cmdPath.c, cmdTrace.c, cmdVersion.c, cmdXResource.c, config/install.sh,
+  config/tcl.m4, configure.in, error.c, init.c, locate_module.c, main.c,
+  modules_def.h, utility.c: * Upgraded configure.in to autoconf 2.52.  *
+  Changed  the configure to search for libTcl.sh to acquire all it's necessary
+  Tcl env.vars from it.  * created a utility function stringer() to handle most
+  of the strcpy/strcat operations and to automatically allocate string memory. 
+  * Mostly changed the memory malloc/free to use stringer/null_free.  * rewrote
+  some of the code logic to have a single point of exit with unwinding of
+  memory allocations.
+
+2002-04-29  lakata <lakata>
+
+  * ModuleCmd_Bootstrap.c, config.h.in, configure, configure.in: added PREFIX
+  to config.h and propagated to bootstrap code as MODULESHOME
+
+  * ModuleCmd_Bootstrap.c, ModuleCmd_Switch.c, error.c, modules_def.h: added
+  support for 1-arg form of "swap/switch" command
+
+2002-04-27  lakata <lakata>
+
+  * ChangeLog, Makefile.in, ModuleCmd_Bootstrap.c, cmdModule.c, cmdTrace.c,
+  config.h.in, doc/module.1.in, init/bash.in, init/csh.in, init/ksh.in,
+  init/perl.in, init/sh.in, init/zsh.in, main.c, modules_def.h, utility.c:
+  added the bootstrap command
+
+2002-04-24  lakata <lakata>
+
+  * config.h.in, configure, configure.in: added TMP_DIR define
+
+  * testsuite/modules.00-init/080-begenv.exp,
+  testsuite/modules.10-use/030-use.exp,
+  testsuite/modules.10-use/031-append.exp,
+  testsuite/modules.10-use/070-unuse.exp,
+  testsuite/modules.20-locate/040-alias.exp,
+  testsuite/modules.20-locate/045-symvers.exp,
+  testsuite/modules.20-locate/046-getsym.exp,
+  testsuite/modules.20-locate/047-symerrs.exp,
+  testsuite/modules.20-locate/048-symexec.exp,
+  testsuite/modules.20-locate/050-locrc.exp,
+  testsuite/modules.20-locate/060-rc.exp,
+  testsuite/modules.20-locate/070-homerc.exp,
+  testsuite/modules.30-userlvl/040-advanced.exp,
+  testsuite/modules.30-userlvl/045-adv.exp,
+  testsuite/modules.30-userlvl/050-expert.exp,
+  testsuite/modules.30-userlvl/055-exp.exp,
+  testsuite/modules.35-trace/010-init_ts.exp,
+  testsuite/modules.35-trace/020-default.exp,
+  testsuite/modules.35-trace/030-all-on.exp,
+  testsuite/modules.35-trace/031-all-off.exp,
+  testsuite/modules.35-trace/040-load-all.exp,
+  testsuite/modules.35-trace/041-load-all.exp,
+  testsuite/modules.35-trace/042-load-on.exp,
+  testsuite/modules.35-trace/043-load-onoff.exp,
+  testsuite/modules.35-trace/044-load-ovr.exp,
+  testsuite/modules.35-trace/050-disp-onoff.exp,
+  testsuite/modules.35-trace/060-dilo-onoff.exp,
+  testsuite/modules.35-trace/070-colon.exp,
+  testsuite/modules.35-trace/095-cleanup.exp,
+  testsuite/modules.50-cmds/015-use.exp,
+  testsuite/modules.50-cmds/017-use-undo.exp,
+  testsuite/modules.50-cmds/020-setenv.exp,
+  testsuite/modules.50-cmds/030-unsetenv.exp,
+  testsuite/modules.50-cmds/035-unsetenv-undo.exp,
+  testsuite/modules.50-cmds/036-unsetenv-x.exp,
+  testsuite/modules.50-cmds/040-append.exp,
+  testsuite/modules.50-cmds/045-append-undo.exp,
+  testsuite/modules.50-cmds/050-prepend.exp,
+  testsuite/modules.50-cmds/055-prepend-undo.exp,
+  testsuite/modules.50-cmds/060-remove.exp,
+  testsuite/modules.50-cmds/065-remove-undo.exp,
+  testsuite/modules.50-cmds/075-alias.exp,
+  testsuite/modules.50-cmds/077-alias-undo.exp,
+  testsuite/modules.50-cmds/080-info-name.exp,
+  testsuite/modules.50-cmds/081-info-user.exp,
+  testsuite/modules.50-cmds/082-info-user-exp.exp,
+  testsuite/modules.50-cmds/083-info-mode.exp,
+  testsuite/modules.50-cmds/084-info-mode-exp.exp,
+  testsuite/modules.50-cmds/085-info-flags.exp,
+  testsuite/modules.50-cmds/086-info-shells.exp,
+  testsuite/modules.50-cmds/087-info-shells-exp.exp,
+  testsuite/modules.50-cmds/088-info-isloaded.exp,
+  testsuite/modules.50-cmds/095-uname.exp,
+  testsuite/modules.50-cmds/101-badfac.exp,
+  testsuite/modules.50-cmds/110-verbose.exp,
+  testsuite/modules.50-cmds/115-verbose-msg.exp,
+  testsuite/modules.50-cmds/120-prereq-full.exp,
+  testsuite/modules.50-cmds/121-prereq-module.exp,
+  testsuite/modules.50-cmds/130-conflict-full.exp,
+  testsuite/modules.50-cmds/131-conflict-module.exp,
+  testsuite/modules.50-cmds/140-system.exp,
+  testsuite/modules.50-cmds/150-module.exp,
+  testsuite/modules.50-cmds/170-swap.exp,
+  testsuite/modules.50-cmds/190-load.exp,
+  testsuite/modules.50-cmds/200-break.exp,
+  testsuite/modules.70-maint/020-update.exp,
+  testsuite/modules.70-maint/050-whatis-load.exp,
+  testsuite/modules.95-version/020-load.exp,
+  testsuite/modules.95-version/020-unload.exp,
+  testsuite/modules.95-version/022-load2.exp,
+  testsuite/modules.95-version/022-unload2.exp,
+  testsuite/modules.95-version/040-xgetenv.exp: changed tests to match new
+  syntax for setting env vars. rather than quoting, special characters are
+  escaped
+
+2002-03-11  lakata <lakata>
+
+  * aclocal.m4, configure, configure.in: more TCL smarts, if tclsh does not
+  exist on path
+
+  * testsuite/modules.00-init/015-version.exp.in,
+  testsuite/modules.50-cmds/100-loglevel.exp.in: removed *.in versions
+  (configure processed)
+
+  * testsuite/modules.00-init/015-version.exp,
+  testsuite/modules.50-cmds/100-loglevel.exp: renamed from *.in versions
+  (configure processed)
+
+  * testsuite/config/unix.exp, testsuite/modulefiles/system/2.0,
+  testsuite/modulefiles/use/1.0, testsuite/modulefiles/use/1.0.in,
+  testsuite/modulefiles/use/2.0, testsuite/modulefiles/use/2.0.in,
+  testsuite/modulefiles/use/2.1, testsuite/modulefiles/use/2.1.in,
+  testsuite/modulefiles/use/2.2, testsuite/modulefiles/use/2.2.in,
+  testsuite/modules.00-init/010-environ.exp,
+  testsuite/modules.00-init/015-version.exp.in,
+  testsuite/modules.00-init/050-modpath.exp,
+  testsuite/modules.00-init/080-begenv.exp,
+  testsuite/modules.10-use/030-use.exp,
+  testsuite/modules.10-use/031-append.exp,
+  testsuite/modules.10-use/070-unuse.exp,
+  testsuite/modules.20-locate/060-rc.exp,
+  testsuite/modules.20-locate/065-rcerrs.exp,
+  testsuite/modules.20-locate/070-homerc.exp,
+  testsuite/modules.50-cmds/015-use.exp,
+  testsuite/modules.50-cmds/017-use-undo.exp,
+  testsuite/modules.70-maint/010-init_ts.exp,
+  testsuite/modules.70-maint/020-update.exp,
+  testsuite/modules.70-maint/070-display.exp,
+  testsuite/modules.95-version/010-init_ts.exp: (a) updated testsuite by
+  centering source on TESTSUITEDIR, rather than rely on "pwd" or relative
+  paths, which prohibit running the testsuite from a different dir (b) removed
+  autoconf/configure processing of testsuite
+
+2002-01-04  rkowen <rkowen>
+
+  * ChangeLog, ModuleCmd_Load.c, PROBLEMS, RKOConfigure, doc/modulefile.4.in,
+  init.c, testsuite/modulefiles/break/1.0, testsuite/modulefiles/break/2.0,
+  testsuite/modulefiles/break/3.0, testsuite/modules.50-cmds/200-break.exp: * A
+  'break' in a modulefile will cause the modulefile to not be added to
+  $LOADEDMODULES, but will be considered a successful execution to not affect
+  other modulefiles being loaded concurrently (Patch due to Scott Gaskins). *
+  Tests and docs added for the above.
+
+2001-11-05  rkowen <rkowen>
+
+  * ChangeLog, Makefile.in, PROBLEMS, RKOConfigure, configure, configure.in,
+  doc/Modules-Paper.pdf, locate_module.c, probetcl,
+  testsuite/modules.50-cmds/190-load.exp, version.c: * Fixed problem with
+  module load when the full path is given (patch due to Scott Gaskins). * Added
+  tests for the above problem. * Added the Modules-Paper in PDF format (thanks
+  to Philip Kearns and Leo Butler for raising the issue). * Modified probetcl
+  to avoid using the -c option (patch due to Philip Kearns). * Modified
+  probetcl to use tclsh first then tcl * Added TCL_VERSION to configure and use
+  it in the Makefile to use the -ltcl@TCL_VERSION@ library.
+
+2001-08-18  rkowen <rkowen>
+
+  * ChangeLog, version.c: Release 3.1.5
+
+2001-08-17  rkowen <rkowen>
+
+  * ChangeLog, ModuleCmd_Load.c, cmdPath.c, version.c: * Fixed up cmdPath to
+  remove individual items from a path (patch due to Eric Stanley).
+
+2001-08-03  rkowen <rkowen>
+
+  * .ftp, Makefile.in, version.c: Minor fixes for distribution uploading.
+
+  * .spec.in, ChangeLog, Makefile.in, version.c: * Added bz2 files to
+  distribution mix.
+
+2001-07-26  rkowen <rkowen>
+
+  * ChangeLog, cmdPath.c, testsuite/modulefiles/info/isloaded,
+  testsuite/modulefiles/loc_dv1/1.0, testsuite/modulefiles/loc_dv1/2.0,
+  testsuite/modules.50-cmds/088-info-isloaded.exp,
+  testsuite/modules.50-cmds/170-swap.exp, version.c: * Fixed "module swap" to
+  put the substituted module in the same path location as the old.  Also added
+  a number of tests for this feature. (Bug was pointed out by Leo Butler
+  <lbutler@brocade.com>) * Added tests for the "is-loaded" modulefile command
+  introduced back in 3.0.8-rko.
+
+2001-07-16  rkowen <rkowen>
+
+  * INSTALL.RH7x, etc/global/bashrc.in, etc/global/profile.in: Fixed some
+  embarrassing typos and editting mistakes.
+
+2001-07-11  rkowen <rkowen>
+
+  * testsuite/modulefiles/versions/1.1, testsuite/modulefiles/versions/1.2,
+  testsuite/modulefiles/versions/1.3: More test stragglers for 3.1.3
+
+  * testsuite/modulefiles.other/1.1/version,
+  testsuite/modulefiles.other/1.2/version,
+  testsuite/modulefiles.other/1.3/version, testsuite/modulefiles/unsetenv/0.9:
+  Forgot some straggler test files for 3.1.3
+
+  * ChangeLog, README.perl, configure, configure.in, modulefiles/Makefile.in,
+  modulefiles/module-cvs.in, modulefiles/modules.in, modulefiles/use.own.in,
+  testsuite/modules.50-cmds/017-use-undo.exp, version.c,
+  xref/ModuleCmd_Use.c.html, xref/cxref.function: * Added module-cvs modulefile
+  for easy CVS/ftp access to the modules CVS repository. * Added README.perl
+  describing Ron Isaacson's Env::Modulecmd perl module
+  (Ron.Isaacson@morganstanley.com). * Added further tests for modulefile
+  "module use dir_path" * Fixed bug of unloading a modulefile with a "module
+  use dir_path"
+
+2001-07-09  rkowen <rkowen>
+
+  * ChangeLog, INSTALL, INSTALL.RH7x, ModuleCmd_Use.c, cmdPath.c, cmdSetenv.c,
+  configure, configure.in, doc/modulefile.4.in, etc/Makefile.in,
+  etc/global/bashrc.in, etc/global/csh.cshrc.in, etc/global/csh.login.in,
+  etc/global/csh.modules.in, etc/global/profile.in,
+  etc/global/profile.modules.in, etc/skel/.kshenv.in, etc/skel/.profile.in,
+  modulefiles/use.own.in, modulefiles/version.in,
+  testsuite/modulefiles/use/.version, testsuite/modulefiles/use/1.0.in,
+  testsuite/modulefiles/use/2.0.in, testsuite/modulefiles/use/2.1.in,
+  testsuite/modulefiles/use/2.2.in, testsuite/modules.00-init/080-begenv.exp,
+  testsuite/modules.10-use/030-use.exp,
+  testsuite/modules.10-use/031-append.exp,
+  testsuite/modules.10-use/070-unuse.exp,
+  testsuite/modules.20-locate/040-alias.exp,
+  testsuite/modules.20-locate/045-symvers.exp,
+  testsuite/modules.20-locate/046-getsym.exp,
+  testsuite/modules.20-locate/047-symerrs.exp,
+  testsuite/modules.20-locate/048-symexec.exp,
+  testsuite/modules.20-locate/050-locrc.exp,
+  testsuite/modules.20-locate/060-rc.exp,
+  testsuite/modules.20-locate/070-homerc.exp,
+  testsuite/modules.30-userlvl/030-novice.exp,
+  testsuite/modules.30-userlvl/035-nov.exp,
+  testsuite/modules.30-userlvl/040-advanced.exp,
+  testsuite/modules.30-userlvl/045-adv.exp,
+  testsuite/modules.30-userlvl/050-expert.exp,
+  testsuite/modules.30-userlvl/055-exp.exp,
+  testsuite/modules.30-userlvl/090-undef.exp,
+  testsuite/modules.35-trace/020-default.exp,
+  testsuite/modules.35-trace/030-all-on.exp,
+  testsuite/modules.35-trace/031-all-off.exp,
+  testsuite/modules.35-trace/040-load-all.exp,
+  testsuite/modules.35-trace/041-load-all.exp,
+  testsuite/modules.35-trace/042-load-on.exp,
+  testsuite/modules.35-trace/043-load-onoff.exp,
+  testsuite/modules.35-trace/044-load-ovr.exp,
+  testsuite/modules.35-trace/050-disp-onoff.exp,
+  testsuite/modules.35-trace/060-dilo-onoff.exp,
+  testsuite/modules.35-trace/070-colon.exp,
+  testsuite/modules.50-cmds/010-init_ts.exp,
+  testsuite/modules.50-cmds/015-use.exp,
+  testsuite/modules.50-cmds/020-setenv.exp,
+  testsuite/modules.50-cmds/025-setenv-undo.exp,
+  testsuite/modules.50-cmds/030-unsetenv.exp,
+  testsuite/modules.50-cmds/035-unsetenv-undo.exp,
+  testsuite/modules.50-cmds/036-unsetenv-x.exp,
+  testsuite/modules.50-cmds/040-append.exp,
+  testsuite/modules.50-cmds/045-append-undo.exp,
+  testsuite/modules.50-cmds/050-prepend.exp,
+  testsuite/modules.50-cmds/055-prepend-undo.exp,
+  testsuite/modules.50-cmds/060-remove.exp,
+  testsuite/modules.50-cmds/065-remove-undo.exp,
+  testsuite/modules.50-cmds/075-alias.exp,
+  testsuite/modules.50-cmds/080-info-name.exp,
+  testsuite/modules.50-cmds/081-info-user.exp,
+  testsuite/modules.50-cmds/082-info-user-exp.exp,
+  testsuite/modules.50-cmds/083-info-mode.exp,
+  testsuite/modules.50-cmds/084-info-mode-exp.exp,
+  testsuite/modules.50-cmds/085-info-flags.exp,
+  testsuite/modules.50-cmds/086-info-shells.exp,
+  testsuite/modules.50-cmds/087-info-shells-exp.exp,
+  testsuite/modules.50-cmds/095-uname.exp,
+  testsuite/modules.50-cmds/101-badfac.exp,
+  testsuite/modules.50-cmds/110-verbose.exp,
+  testsuite/modules.50-cmds/115-verbose-msg.exp,
+  testsuite/modules.50-cmds/120-prereq-full.exp,
+  testsuite/modules.50-cmds/121-prereq-module.exp,
+  testsuite/modules.50-cmds/130-conflict-full.exp,
+  testsuite/modules.50-cmds/131-conflict-module.exp,
+  testsuite/modules.50-cmds/140-system.exp,
+  testsuite/modules.50-cmds/150-module.exp,
+  testsuite/modules.70-maint/020-update.exp,
+  testsuite/modules.70-maint/050-whatis-load.exp,
+  testsuite/modules.90-avail/040-wild.exp,
+  testsuite/modules.95-version/010-init_ts.exp,
+  testsuite/modules.95-version/020-load.exp,
+  testsuite/modules.95-version/020-unload.exp,
+  testsuite/modules.95-version/022-load2.exp,
+  testsuite/modules.95-version/022-unload2.exp,
+  testsuite/modules.95-version/040-xgetenv.exp,
+  testsuite/modules.95-version/999-cleanup.exp, utility.c, version.c: * Added
+  document file INSTALL.RH7x which explains how to set up an modules
+  environment for all users through the system shell files.  Is specific to
+  Linux/RedHat 7.x, but is of general applicability. * Added further tests for
+  modulefile "module use dir_path" (found an unload bug that will be fixed
+  before release) * Environment variable contents are now quoted to preserve
+  any embedded environment variables. (Needed for versioning) * Added over 50
+  tests specific to module versioning, and testing xgetenv. * Fixed the
+  unsetenv on unload function, the feature added in 3.0.6-rko was supposed to
+  set the env.var. to the optional third argument. This was to allow old
+  env.var. values to be recovered by unraveling a stack set in an other
+  env.var.  Added tests for this feature. This is used by the version
+  modulefile. * Fixed and updated the version modulefile to allow stacked
+  versions to be removed the stack. * Removed an annoying spurious stderr
+  newline.
+
+2001-06-10  rkowen <rkowen>
+
+  * Makefile.in, testsuite/modulefiles.other/README: Fixed the way a
+  distribution tar ball is made.  It makes only one CVS connection instead of
+  one per file.
+
+2001-06-09  rkowen <rkowen>
+
+  * ChangeLog, Makefile.in, ModuleCmd_Avail.c, ModuleCmd_Display.c,
+  ModuleCmd_Help.c, ModuleCmd_Init.c, ModuleCmd_Load.c, ModuleCmd_Switch.c,
+  ModuleCmd_Use.c, ModuleCmd_Whatis.c, cmdAlias.c, cmdConflict.c, cmdInfo.c,
+  cmdIsLoaded.c, cmdLog.c, cmdMisc.c, cmdModule.c, cmdPath.c, cmdSetenv.c,
+  cmdTrace.c, cmdUlvl.c, cmdVerbose.c, cmdVersion.c, cmdWhatis.c,
+  cmdXResource.c, doc/module.1.in, error.c, getopt.c, locate_module.c, main.c,
+  modules.lsm.in, modules_def.h, testsuite/modules.10-use/030-use.exp,
+  testsuite/modules.10-use/031-append.exp,
+  testsuite/modules.10-use/070-unuse.exp, utility.c, version.c,
+  xref/ModuleCmd_Avail.c.html, xref/ModuleCmd_Display.c.html,
+  xref/ModuleCmd_Help.c.html, xref/ModuleCmd_Init.c.html,
+  xref/ModuleCmd_Load.c.html, xref/ModuleCmd_Switch.c.html,
+  xref/ModuleCmd_Use.c.html, xref/ModuleCmd_Whatis.c.html,
+  xref/cmdAlias.c.html, xref/cmdConflict.c.html, xref/cmdInfo.c.html,
+  xref/cmdIsLoaded.c.html, xref/cmdLog.c.html, xref/cmdMisc.c.html,
+  xref/cmdModule.c.html, xref/cmdPath.c.html, xref/cmdSetenv.c.html,
+  xref/cmdTrace.c.html, xref/cmdUlvl.c.html, xref/cmdVerbose.c.html,
+  xref/cmdVersion.c.html, xref/cmdWhatis.c.html, xref/cmdXResource.c.html,
+  xref/cxref.apdx.html, xref/cxref.function, xref/cxref.variable,
+  xref/error.c.html, xref/init.c.html, xref/locate_module.c.html,
+  xref/main.c.html, xref/utility.c.html: * Fixed the "module use --append"
+  feature, and fixed the tests for "module use", "module use --append", and
+  "module unuse". * Changed the global variable names (flags,current_module) to
+  (g_flags, g_current_module) to identify their ubiquity in the module source.
+
+2001-01-16  rminsk <rminsk>
+
+  * init/Makefile.in, init/python.in: Fixing typeo's
+
+  * init/Makefile.in, init/python.in: Adding python init files.
+
+2000-11-03  rk <rk>
+
+  * ChangeLog, INSTALL, cmdModule.c: * Fixed the changed *interpter->result
+  return value with Tcl8.3+ (patch due to Jens Hamisch). And some document
+  changes.
+
+2000-06-28  rk <rk>
+
+  * ChangeLog, Makefile.in, ModuleCmd_Load.c, README, ccc.h.in,
+  xref/ModuleCmd_Avail.c.html, xref/ModuleCmd_Clear.c.html,
+  xref/ModuleCmd_Display.c.html, xref/ModuleCmd_Help.c.html,
+  xref/ModuleCmd_Init.c.html, xref/ModuleCmd_List.c.html,
+  xref/ModuleCmd_Load.c.html, xref/ModuleCmd_Purge.c.html,
+  xref/ModuleCmd_Switch.c.html, xref/ModuleCmd_Update.c.html,
+  xref/ModuleCmd_Use.c.html, xref/ModuleCmd_Whatis.c.html,
+  xref/cmdAlias.c.html, xref/cmdConflict.c.html, xref/cmdInfo.c.html,
+  xref/cmdIsLoaded.c.html, xref/cmdLog.c.html, xref/cmdMisc.c.html,
+  xref/cmdModule.c.html, xref/cmdPath.c.html, xref/cmdSetenv.c.html,
+  xref/cmdTrace.c.html, xref/cmdUlvl.c.html, xref/cmdUname.c.html,
+  xref/cmdVerbose.c.html, xref/cmdVersion.c.html, xref/cmdWhatis.c.html,
+  xref/cmdXResource.c.html, xref/error.c.html, xref/init.c.html,
+  xref/locate_module.c.html, xref/main.c.html, xref/utility.c.html: * Removed
+  warning message for unloading a module that's not loaded. * Added source code
+  cross-referencing via cxref-1.5b(patched)
+
+  * .cxref, Makefile.in, xref/ModuleCmd_Avail.c.html,
+  xref/ModuleCmd_Clear.c.html, xref/ModuleCmd_Display.c.html,
+  xref/ModuleCmd_Help.c.html, xref/ModuleCmd_Init.c.html,
+  xref/ModuleCmd_List.c.html, xref/ModuleCmd_Load.c.html,
+  xref/ModuleCmd_Purge.c.html, xref/ModuleCmd_Switch.c.html,
+  xref/ModuleCmd_Update.c.html, xref/ModuleCmd_Use.c.html,
+  xref/ModuleCmd_Whatis.c.html, xref/cmdAlias.c.html, xref/cmdConflict.c.html,
+  xref/cmdInfo.c.html, xref/cmdIsLoaded.c.html, xref/cmdLog.c.html,
+  xref/cmdMisc.c.html, xref/cmdModule.c.html, xref/cmdPath.c.html,
+  xref/cmdSetenv.c.html, xref/cmdTrace.c.html, xref/cmdUlvl.c.html,
+  xref/cmdUname.c.html, xref/cmdVerbose.c.html, xref/cmdVersion.c.html,
+  xref/cmdWhatis.c.html, xref/cmdXResource.c.html, xref/cxref.apdx.html,
+  xref/cxref.function, xref/cxref.html, xref/cxref.include, xref/cxref.typedef,
+  xref/cxref.variable, xref/error.c.html, xref/getopt.c.html, xref/index.html,
+  xref/init.c.html, xref/locate_module.c.html, xref/main.c.html,
+  xref/utility.c.html, xref/version.c.html: Added cxref-1.5b(patched) generated
+  HTML files showing the source code cross-referencing relations.
+
+  * Makefile.in, configure, configure.in, version.c: Minor updates.
+
+  * .cxref, .ftp, .spec.in, ChangeLog, INSTALL, LICENSE.GPL, MACHINES,
+  Makefile.in, ModuleCmd_Avail.c, ModuleCmd_Clear.c, ModuleCmd_Display.c,
+  ModuleCmd_Help.c, ModuleCmd_Init.c, ModuleCmd_List.c, ModuleCmd_Load.c,
+  ModuleCmd_Purge.c, ModuleCmd_Switch.c, ModuleCmd_Update.c, ModuleCmd_Use.c,
+  ModuleCmd_Whatis.c, PROBLEMS, README, RKOConfigure, TODO, acconfig.h,
+  aclocal.m4, ccc.h.in, cmdAlias.c, cmdConflict.c, cmdInfo.c, cmdIsLoaded.c,
+  cmdLog.c, cmdMisc.c, cmdModule.c, cmdPath.c, cmdSetenv.c, cmdTrace.c,
+  cmdUlvl.c, cmdUname.c, cmdVerbose.c, cmdVersion.c, cmdWhatis.c,
+  cmdXResource.c, config.h.in, configure, configure.in, doc/Makefile.in,
+  doc/Modules-Paper.doc, doc/module.1.in, doc/modulefile.4.in, error.c,
+  etc/Makefile.in, etc/README, etc/add.modules.in, etc/global/csh.login.in,
+  etc/global/csh.modules.in, etc/global/profile.in,
+  etc/global/profile.modules.in, etc/mkroot.in, etc/skel/.cshrc.in,
+  etc/skel/.kshenv.in, etc/skel/.login.in, etc/skel/.profile.in,
+  ext/Makefile.in, ext/README, ext/add.ext.in, ext/common/.cshrc.in,
+  ext/common/.kshenv.in, ext/common/.login.in, ext/common/.profile.in,
+  ext/mkroot.in, ext/skel/.cshrc.ext, ext/skel/.kshenv.ext,
+  ext/skel/.login.ext, ext/skel/.modules, ext/skel/.profile.ext, getopt.c,
+  getopt.h, init.c, init/.modulespath.in, init/Makefile.in, init/bash.in,
+  init/csh.in, init/ksh.in, init/perl.in, init/sh.in, init/tcsh.in,
+  init/zsh.in, install.sh, locate_module.c, main.c, modulefiles/Makefile.in,
+  modulefiles/dot.in, modulefiles/module-info.in, modulefiles/modules.in,
+  modulefiles/null.in, modulefiles/use.own.in, modulefiles/version.in,
+  modules.lsm.in, modules_def.h, probetcl, stripmkf, testsuite/config/unix.exp,
+  testsuite/etc/apropos.cache, testsuite/etc/bad, testsuite/etc/empty,
+  testsuite/etc/rc, testsuite/home/.modulerc,
+  testsuite/modulefiles/.moduleavailcache,
+  testsuite/modulefiles/.moduleavailcache.202,
+  testsuite/modulefiles/.moduleavailcachedir,
+  testsuite/modulefiles/.moduleavailcachedir.202, testsuite/modulefiles/README,
+  testsuite/modulefiles/alias/2.0, testsuite/modulefiles/append/2.0,
+  testsuite/modulefiles/conflict/full, testsuite/modulefiles/conflict/module,
+  testsuite/modulefiles/empty/1.0, testsuite/modulefiles/help/2.0,
+  testsuite/modulefiles/info/mode1, testsuite/modulefiles/info/mode2,
+  testsuite/modulefiles/info/mode3, testsuite/modulefiles/info/mode4,
+  testsuite/modulefiles/info/mode5, testsuite/modulefiles/info/mode6,
+  testsuite/modulefiles/info/name, testsuite/modulefiles/info/shells,
+  testsuite/modulefiles/info/shellsexp, testsuite/modulefiles/info/user,
+  testsuite/modulefiles/info/userexp, testsuite/modulefiles/loc_dv1/1.0,
+  testsuite/modulefiles/loc_dv1/2.0, testsuite/modulefiles/loc_dv1/3.0,
+  testsuite/modulefiles/loc_dv2/.version, testsuite/modulefiles/loc_dv2/1.0,
+  testsuite/modulefiles/loc_dv2/2.0, testsuite/modulefiles/loc_dv3/.version,
+  testsuite/modulefiles/loc_dv3/1.0, testsuite/modulefiles/loc_dv3/2.0,
+  testsuite/modulefiles/loc_dv4/.version, testsuite/modulefiles/loc_dv4/1.0,
+  testsuite/modulefiles/loc_dv4/2.0, testsuite/modulefiles/loc_dv6/1.0,
+  testsuite/modulefiles/loc_dv6/2.0/1.0,
+  testsuite/modulefiles/loc_dv7/.version, testsuite/modulefiles/loc_dv7/1.0,
+  testsuite/modulefiles/loc_dv7/2.0/1.0, testsuite/modulefiles/loc_dv7/3.0,
+  testsuite/modulefiles/loc_dv8/.version, testsuite/modulefiles/loc_dv8/1.0,
+  testsuite/modulefiles/loc_dv8/2.0, testsuite/modulefiles/loc_fq/1.0,
+  testsuite/modulefiles/loc_fq/2.0, testsuite/modulefiles/loc_rc1/.modulerc,
+  testsuite/modulefiles/loc_rc1/1.0, testsuite/modulefiles/loc_rc1/2.0,
+  testsuite/modulefiles/loc_rc2/.modulerc, testsuite/modulefiles/loc_rc2/1.0,
+  testsuite/modulefiles/loc_rc2/2.0, testsuite/modulefiles/loc_rc3/.modulerc,
+  testsuite/modulefiles/loc_rc3/1.0, testsuite/modulefiles/loc_rc3/2.0,
+  testsuite/modulefiles/loc_rc3/3.0, testsuite/modulefiles/loc_rc4/.modulerc,
+  testsuite/modulefiles/loc_rc4/.version, testsuite/modulefiles/loc_rc4/1.0,
+  testsuite/modulefiles/loc_rc4/2.0, testsuite/modulefiles/loc_rc4/3.0,
+  testsuite/modulefiles/loc_rc5/.modulerc, testsuite/modulefiles/loc_rc5/1.0,
+  testsuite/modulefiles/loc_rc5/2.0, testsuite/modulefiles/loc_sym/1.0,
+  testsuite/modulefiles/loc_sym/alias1, testsuite/modulefiles/loc_sym/alias2,
+  testsuite/modulefiles/loc_sym/alias3, testsuite/modulefiles/loc_sym/alias4,
+  testsuite/modulefiles/loc_sym/alias5, testsuite/modulefiles/loc_sym/alias6,
+  testsuite/modulefiles/loc_sym/exec1, testsuite/modulefiles/loc_sym/exec2,
+  testsuite/modulefiles/loc_sym/getvers1,
+  testsuite/modulefiles/loc_sym/getvers2,
+  testsuite/modulefiles/loc_sym/getvers3,
+  testsuite/modulefiles/loc_sym/getvers4,
+  testsuite/modulefiles/loc_sym/getvers5,
+  testsuite/modulefiles/loc_sym/getvers6,
+  testsuite/modulefiles/loc_sym/getvers7,
+  testsuite/modulefiles/loc_sym/getvers8,
+  testsuite/modulefiles/loc_sym/versinf1,
+  testsuite/modulefiles/loc_sym/versinf2,
+  testsuite/modulefiles/loc_sym/versinf3,
+  testsuite/modulefiles/loc_sym/versinf4,
+  testsuite/modulefiles/loc_sym/versinf5,
+  testsuite/modulefiles/loc_sym/versinf6,
+  testsuite/modulefiles/loc_sym/versinf7,
+  testsuite/modulefiles/loc_sym/version1,
+  testsuite/modulefiles/loc_sym/version10,
+  testsuite/modulefiles/loc_sym/version11,
+  testsuite/modulefiles/loc_sym/version12,
+  testsuite/modulefiles/loc_sym/version13,
+  testsuite/modulefiles/loc_sym/version14,
+  testsuite/modulefiles/loc_sym/version2,
+  testsuite/modulefiles/loc_sym/version3,
+  testsuite/modulefiles/loc_sym/version4,
+  testsuite/modulefiles/loc_sym/version5,
+  testsuite/modulefiles/loc_sym/version6,
+  testsuite/modulefiles/loc_sym/version7,
+  testsuite/modulefiles/loc_sym/version8,
+  testsuite/modulefiles/loc_sym/version9, testsuite/modulefiles/log/badfac,
+  testsuite/modulefiles/log/err_both_1, testsuite/modulefiles/log/err_both_2,
+  testsuite/modulefiles/log/err_file, testsuite/modulefiles/log/err_syslog,
+  testsuite/modulefiles/module/2.0, testsuite/modulefiles/prepend/2.0,
+  testsuite/modulefiles/prereq/full, testsuite/modulefiles/prereq/module,
+  testsuite/modulefiles/remove/2.0, testsuite/modulefiles/system/2.0,
+  testsuite/modulefiles/trace/all_off, testsuite/modulefiles/trace/all_on,
+  testsuite/modulefiles/trace/colon, testsuite/modulefiles/trace/dilo_onoff,
+  testsuite/modulefiles/trace/disp_onoff, testsuite/modulefiles/trace/disptrac,
+  testsuite/modulefiles/trace/load_all1, testsuite/modulefiles/trace/load_all2,
+  testsuite/modulefiles/trace/load_on, testsuite/modulefiles/trace/load_onoff,
+  testsuite/modulefiles/trace/load_ovr, testsuite/modulefiles/uname/domain,
+  testsuite/modulefiles/uname/machine, testsuite/modulefiles/uname/nodename,
+  testsuite/modulefiles/uname/release, testsuite/modulefiles/uname/sysname,
+  testsuite/modulefiles/uname/version, testsuite/modulefiles/unsetenv/1.0,
+  testsuite/modulefiles/user/adv, testsuite/modulefiles/user/advanced,
+  testsuite/modulefiles/user/exp, testsuite/modulefiles/user/expert,
+  testsuite/modulefiles/user/nov, testsuite/modulefiles/user/novice,
+  testsuite/modulefiles/user/undef, testsuite/modulefiles/verbose/msg,
+  testsuite/modulefiles/verbose/off, testsuite/modulefiles/verbose/on,
+  testsuite/modulefiles/verbose/undef, testsuite/modulefiles/whatis/lines,
+  testsuite/modulefiles/whatis/multiple, testsuite/modulefiles/whatis/none,
+  testsuite/modulefiles/whatis/single, testsuite/modulefiles/whatis/string,
+  testsuite/modules.00-init/005-init_ts.exp,
+  testsuite/modules.00-init/006-procs.exp,
+  testsuite/modules.00-init/010-environ.exp,
+  testsuite/modules.00-init/015-version.exp.in,
+  testsuite/modules.00-init/030-shells.exp,
+  testsuite/modules.00-init/050-modpath.exp,
+  testsuite/modules.00-init/080-begenv.exp,
+  testsuite/modules.00-init/090-switches.exp,
+  testsuite/modules.10-use/010-init_ts.exp,
+  testsuite/modules.10-use/030-use.exp,
+  testsuite/modules.10-use/031-append.exp,
+  testsuite/modules.10-use/070-unuse.exp,
+  testsuite/modules.20-locate/010-init_ts.exp,
+  testsuite/modules.20-locate/020-fqual.exp,
+  testsuite/modules.20-locate/030-defvers.exp,
+  testsuite/modules.20-locate/040-alias.exp,
+  testsuite/modules.20-locate/045-symvers.exp,
+  testsuite/modules.20-locate/046-getsym.exp,
+  testsuite/modules.20-locate/047-symerrs.exp,
+  testsuite/modules.20-locate/048-symexec.exp,
+  testsuite/modules.20-locate/050-locrc.exp,
+  testsuite/modules.20-locate/055-locrcerrs.exp,
+  testsuite/modules.20-locate/060-rc.exp,
+  testsuite/modules.20-locate/065-rcerrs.exp,
+  testsuite/modules.20-locate/070-homerc.exp,
+  testsuite/modules.20-locate/095-cleanup.exp,
+  testsuite/modules.30-userlvl/010-init_ts.exp,
+  testsuite/modules.30-userlvl/030-novice.exp,
+  testsuite/modules.30-userlvl/035-nov.exp,
+  testsuite/modules.30-userlvl/040-advanced.exp,
+  testsuite/modules.30-userlvl/045-adv.exp,
+  testsuite/modules.30-userlvl/050-expert.exp,
+  testsuite/modules.30-userlvl/055-exp.exp,
+  testsuite/modules.30-userlvl/090-undef.exp,
+  testsuite/modules.35-trace/010-init_ts.exp,
+  testsuite/modules.35-trace/020-default.exp,
+  testsuite/modules.35-trace/030-all-on.exp,
+  testsuite/modules.35-trace/031-all-off.exp,
+  testsuite/modules.35-trace/040-load-all.exp,
+  testsuite/modules.35-trace/041-load-all.exp,
+  testsuite/modules.35-trace/042-load-on.exp,
+  testsuite/modules.35-trace/043-load-onoff.exp,
+  testsuite/modules.35-trace/044-load-ovr.exp,
+  testsuite/modules.35-trace/050-disp-onoff.exp,
+  testsuite/modules.35-trace/060-dilo-onoff.exp,
+  testsuite/modules.35-trace/070-colon.exp,
+  testsuite/modules.35-trace/095-cleanup.exp,
+  testsuite/modules.50-cmds/010-init_ts.exp,
+  testsuite/modules.50-cmds/020-setenv.exp,
+  testsuite/modules.50-cmds/025-setenv-undo.exp,
+  testsuite/modules.50-cmds/030-unsetenv.exp,
+  testsuite/modules.50-cmds/035-unsetenv-undo.exp,
+  testsuite/modules.50-cmds/040-append.exp,
+  testsuite/modules.50-cmds/045-append-undo.exp,
+  testsuite/modules.50-cmds/050-prepend.exp,
+  testsuite/modules.50-cmds/055-prepend-undo.exp,
+  testsuite/modules.50-cmds/060-remove.exp,
+  testsuite/modules.50-cmds/065-remove-undo.exp,
+  testsuite/modules.50-cmds/070-alias-proc.exp,
+  testsuite/modules.50-cmds/075-alias.exp,
+  testsuite/modules.50-cmds/077-alias-undo.exp,
+  testsuite/modules.50-cmds/080-info-name.exp,
+  testsuite/modules.50-cmds/081-info-user.exp,
+  testsuite/modules.50-cmds/082-info-user-exp.exp,
+  testsuite/modules.50-cmds/083-info-mode.exp,
+  testsuite/modules.50-cmds/084-info-mode-exp.exp,
+  testsuite/modules.50-cmds/085-info-flags.exp,
+  testsuite/modules.50-cmds/086-info-shells.exp,
+  testsuite/modules.50-cmds/087-info-shells-exp.exp,
+  testsuite/modules.50-cmds/090-uname-proc.exp,
+  testsuite/modules.50-cmds/095-uname.exp,
+  testsuite/modules.50-cmds/099-uname-cleanup.exp,
+  testsuite/modules.50-cmds/100-loglevel.exp.in,
+  testsuite/modules.50-cmds/101-badfac.exp,
+  testsuite/modules.50-cmds/110-verbose.exp,
+  testsuite/modules.50-cmds/115-verbose-msg.exp,
+  testsuite/modules.50-cmds/120-prereq-full.exp,
+  testsuite/modules.50-cmds/121-prereq-module.exp,
+  testsuite/modules.50-cmds/130-conflict-full.exp,
+  testsuite/modules.50-cmds/131-conflict-module.exp,
+  testsuite/modules.50-cmds/140-system.exp,
+  testsuite/modules.50-cmds/150-module.exp,
+  testsuite/modules.70-maint/010-init_ts.exp,
+  testsuite/modules.70-maint/020-update.exp,
+  testsuite/modules.70-maint/030-purge.exp,
+  testsuite/modules.70-maint/040-list.exp,
+  testsuite/modules.70-maint/043-listno.exp,
+  testsuite/modules.70-maint/045-listlong.exp,
+  testsuite/modules.70-maint/048-listlongno.exp,
+  testsuite/modules.70-maint/050-whatis-load.exp,
+  testsuite/modules.70-maint/055-whatis.exp,
+  testsuite/modules.70-maint/060-apropos.exp,
+  testsuite/modules.70-maint/070-display.exp,
+  testsuite/modules.70-maint/080-help.exp,
+  testsuite/modules.70-maint/095-cleanup.exp,
+  testsuite/modules.90-avail/010-init_ts.exp,
+  testsuite/modules.90-avail/020-single.exp,
+  testsuite/modules.90-avail/030-multiple.exp,
+  testsuite/modules.90-avail/040-wild.exp,
+  testsuite/modules.90-avail/050-long.exp,
+  testsuite/modules.90-avail/060-empty.exp, testsuite/not_installed,
+  testsuite/systest, utility.c, version.c: modules is a shell tool for
+  setting-up the user environment on the fly, as it were.  It's a powerful
+  mechanism for dynamically changing environment variables, aliases, X11
+  resources, etc. It uses an embedded Tcl intrepretor, with a few extensions. 
+  Therefore, it has a well defined language syntax. Version 3.1 is GPL, and
+  includes many improvements over the 3.0beta.
