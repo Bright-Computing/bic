@@ -1,0 +1,9 @@
+# CVOS -------------------------------------------------------------------- #
+
+if ( -f /etc/profile.d/modules.csh ) then
+  source /etc/profile.d/modules.csh
+  module load dot
+else
+  echo "--> No modules environment"
+endif
+

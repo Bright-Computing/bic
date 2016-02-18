@@ -1,0 +1,20 @@
+#!/bin/ksh
+
+. /etc/profile.d/modules.sh
+
+if [ `module load dot 2>&1 | wc -l` != 0 ]
+then echo Could not load module \"dot\" using /bin/ksh
+     exit 1
+fi
+
+if [ `module load shared 2>&1 | wc -l` != 0 ]
+then echo Could not load module \"shared\" using /bin/ksh
+     exit 1
+fi
+
+if [ `module load shared default-environment 2>&1 | wc -l` != 0 ]
+then echo Could not load module \"default-environment\" using /bin/ksh
+     exit 1
+fi
+
+exit 0

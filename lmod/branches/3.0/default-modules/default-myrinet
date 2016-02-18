@@ -1,0 +1,12 @@
+#%Module1.0#######################################################################
+## default modulefile
+##
+proc ModulesHelp { } {
+
+        puts stderr "\tLoads default modules for this cluster"
+}
+
+module-whatis   "Default myrinet module"
+
+module add dot pgi gm mpich_gm/1.2.6-pgi524 sge
+

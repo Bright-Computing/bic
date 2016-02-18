@@ -1,0 +1,11 @@
+#%Module1.0#######################################################################
+## default modulefile
+##
+proc ModulesHelp { } {
+
+        puts stderr "\tLoads default Myrinet modules for this cluster"
+}
+
+module-whatis   "adds default Myrinet modules"
+
+module add dot mx mpich/mx/gcc sge 
