@@ -97,18 +97,10 @@ rm -rf $RPM_BUILD_ROOT
 SETMODULEPATH_SH="no" 
 SETMODULEPATH_CSH="no" 
 if [ -f /etc/profile.d/00-modulepath.sh ]; then
-  if ! grep -q "export MODULEPATH" /etc/profile.d/00-modulepath.sh; then
-    SETMODULEPATH_SH="yes"
-  fi
-else
   SETMODULEPATH_SH="yes"
 fi
 
 if [ -f /etc/profile.d/00-modulepath.csh ]; then
-  if ! grep -q "setenv MODULEPATH" /etc/profile.d/00-modulepath.csh; then
-    SETMODULEPATH_CSH="yes"
-  fi
-else
   SETMODULEPATH_CSH="yes"
 fi
 
