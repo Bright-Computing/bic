@@ -8,13 +8,16 @@
 %define rhel7_based %(test -e /etc/os-release && source /etc/os-release && echo "${ID}  ${VERSION_ID}" | grep -q -E "^(rhel|centos)  7" && echo 1 || echo 0)
 %define sles11      %(test -e /etc/SuSE-release && test $(awk '$1=="VERSION"{printf $3}' /etc/SuSE-release) = "11" && echo 1 || echo 0)
 %define sles12      %(test -e /etc/os-release && source /etc/os-release && echo "${ID}  ${VERSION_ID}" | grep -q "^sles  12" && echo 1 || echo 0)
+                
+%define git-rev     %(git rev-list --count --first-parent HEAD)
+%define git-tag     %(git describe --always)
 
 %if %{rhel6_based}
-%define release cm7.1_el6
+%define release %{git-rev}-%{git-tag}-cm7.1_el6
 %endif
 
 %if %{rhel7_based}
-%define release cm7.1_el7
+%define release %{git-rev}-%{git-tag}-cm7.1_el7
 %endif
 
 Name:           %{name}
