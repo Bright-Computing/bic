@@ -1,5 +1,4 @@
 %define cmrelease       7.1 
-%define releasetag      %(test %{cmrelease} = trunk && echo cm || echo cm%{cmrelease})
 %define release         cm7.1
 %define name            Lmod
 %define version         6.1
@@ -10,9 +9,17 @@
 %define sles11      %(test -e /etc/SuSE-release && test $(awk '$1=="VERSION"{printf $3}' /etc/SuSE-release) = "11" && echo 1 || echo 0)
 %define sles12      %(test -e /etc/os-release && source /etc/os-release && echo "${ID}  ${VERSION_ID}" | grep -q "^sles  12" && echo 1 || echo 0)
 
+%if %{rhel6_based}
+%define release cm7.1_el6
+%endif
+
+%if %{rhel7_based}
+%define release cm7.1_el7
+%endif
+
 Name:           %{name}
 Version:        %{version}
-Release:        18_cm7.1
+Release:        18_%{release}
 Summary:        Environmental Modules System in Lua
 Group:          Utilities/Shell
 License:        MIT and LGPLv2
