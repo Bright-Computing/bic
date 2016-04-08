@@ -96,11 +96,11 @@ rm -rf $RPM_BUILD_ROOT
 %post
 SETMODULEPATH_SH="no" 
 SETMODULEPATH_CSH="no" 
-if [ -f /etc/profile.d/00-modulepath.sh ]; then
+if [ ! -f /etc/profile.d/00-modulepath.sh ]; then
   SETMODULEPATH_SH="yes"
 fi
 
-if [ -f /etc/profile.d/00-modulepath.csh ]; then
+if [ ! -f /etc/profile.d/00-modulepath.csh ]; then
   SETMODULEPATH_CSH="yes"
 fi
 
