@@ -1,7 +1,7 @@
 %define cmrelease       7.1 
 %define release         cm7.1
 %define name            Lmod
-%define version         6.1
+%define version         6.1.6
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -27,7 +27,7 @@ Summary:        Environmental Modules System in Lua
 Group:          Utilities/Shell
 License:        MIT and LGPLv2
 URL:            https://www.tacc.utexas.edu/tacc-projects/lmod
-Source0:        %{name}/%{name}-%{version}.tar.bz2
+Source0:        https://github.com/TACC/%{name}/archive/%{version}.tar.gz
 Packager:       Fotis/Johnny (Illumina/Bright Computing)
 BuildArch:      noarch
 BuildRequires:  lua
