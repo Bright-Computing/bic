@@ -11,13 +11,14 @@
                 
 %define git_rev     %(git rev-list --count --first-parent HEAD)
 %define git_tag     %(git describe --always)
+%define lmod_upstream_gitid git-8400835
 
 %if %{rhel6_based}
-%define release %{git_rev}_%{git_tag}_cm%{version}_el6
+%define release %{git_rev}_%{git_tag}_cm%{cmrelease}_el6
 %endif
 
 %if %{rhel7_based}
-%define release %{git_rev}_%{git_tag}_cm%{version}_el7
+%define release %{git_rev}_%{git_tag}_cm%{cmrelease}_el7
 %endif
 
 Name:           %{name}
@@ -89,6 +90,10 @@ for FILE in `find ${RPM_BUILD_ROOT}%{_datadir} -type f`; do
   sed -i '1!b;s%^#\!/usr/bin/lua%#\!/usr/bin/lua5.1%' ${FILE}
 done
 %endif
+
+# Fix @gitid@ bug in upstream version
+sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' /usr/share/lmod/%{version}/libexec/Version.lua
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
