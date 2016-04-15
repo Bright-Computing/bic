@@ -92,7 +92,8 @@ done
 %endif
 
 # Fix @gitid@ bug in upstream version
-sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' /usr/share/lmod/%{version}/libexec/Version.lua
+sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}/usr/share/lmod/%{version}/libexec/Version.lua
+sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}/usr/share/lmod/%{version}/settarg/Version.lua
 
 
 %clean
