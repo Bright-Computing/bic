@@ -11,7 +11,7 @@
                 
 %define git_rev     %(git rev-list --count --first-parent HEAD)
 %define git_tag     %(git describe --always)
-%define lmod_upstream_gitid git-8400835
+%define lmod_upstream_gitid git-1921f91
 
 %if %{rhel6_based}
 %define release %{git_rev}_%{git_tag}_cm%{cmrelease}_el6
