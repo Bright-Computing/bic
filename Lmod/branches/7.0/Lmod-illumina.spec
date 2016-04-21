@@ -1,7 +1,7 @@
 %define cmrelease       7.0 
 %define release         cm7.0
 %define name            Lmod
-%define version         6.3
+%define version         6.3.1
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -11,7 +11,7 @@
                 
 %define git_rev     %(git rev-list --count --first-parent HEAD)
 %define git_tag     %(git describe --always)
-%define lmod_upstream_gitid git-1921f91
+%define lmod_upstream_gitid git-669af9b
 
 %if %{rhel6_based}
 %define release %{git_rev}_%{git_tag}_cm%{cmrelease}_el6
@@ -99,6 +99,8 @@ sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+# the conditional structure of the post-Install directive of this .spec, turns it into a non-idempotent caase;
+# This aspect becomes important if we have other RPMs providing any of files /etc/profile.d/00-modulepath.*sh
 %post
 SETMODULEPATH_SH="no" 
 SETMODULEPATH_CSH="no" 
