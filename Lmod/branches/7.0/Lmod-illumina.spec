@@ -73,6 +73,10 @@ make %{?_smp_mflags}
 
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
+
+mkdir -p %{buildroot}%{_sysconfdir}/site/lmod
+install -m 644 contrib/SitePackage/SitePackage.lua %{buildroot}%{_sysconfdir}/site/lmod/SitePackage.lua
+
 # init scripts are sourced
 chmod -x %{buildroot}%{_datadir}/lmod/%{version}/init/*
 mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
@@ -121,6 +125,7 @@ fi
 
 %files
 %doc INSTALL License README README_lua_modulefiles.txt
+%{_sysconfdir}/site/lmod/SitePackage.lua
 %{_sysconfdir}/modulefiles
 %{_sysconfdir}/profile.d/z00_lmod.csh
 %{_sysconfdir}/profile.d/z00_lmod.sh
