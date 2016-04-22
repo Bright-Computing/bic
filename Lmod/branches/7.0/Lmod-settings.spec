@@ -1,7 +1,7 @@
 %define cmrelease       7.0 
 %define release         cm7.0
 %define name            Lmod-site-config
-%define version         6.3
+%define version         6.3.1
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -49,10 +49,12 @@ mkdir -p %{buildroot}%{_sysconfdir}/profile.d
 pwd
 ls
 install -m 700 %{name}-%{version}-%{cmrelease}/00-user_is_root.sh %{buildroot}/%{_sysconfdir}/profile.d/00-user_is_root.sh
+install -m 700 %{name}-%{version}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %config(noreplace) %attr(700, root, root) /etc/profile.d/00-user_is_root.sh
+%config(noreplace) %attr(700, root, root) /etc/profile.d/z01-default_modules.sh
 
