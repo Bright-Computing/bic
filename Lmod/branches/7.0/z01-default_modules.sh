@@ -4,8 +4,8 @@ if [ -z "$__Init_Default_Modules" -o -z "$LD_LIBRARY_PATH" ]; then
      if [ -z "$LMOD_SYSTEM_DEFAULT_MODULES" ];then
        export LMOD_SYSTEM_DEFAULT_MODULES="DefaultModules"
      fi
-     module --initial_load restore
    fi
+   module --initial_load restore
 else
    module refresh
 fi
