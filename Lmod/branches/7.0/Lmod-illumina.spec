@@ -103,25 +103,7 @@ sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-# the conditional structure of the post-Install directive of this .spec, turns it into a non-idempotent caase;
-# This aspect becomes important if we have other RPMs providing any of files /etc/profile.d/00-modulepath.*sh
 %post
-SETMODULEPATH_SH="no" 
-SETMODULEPATH_CSH="no" 
-if [ ! -f /etc/profile.d/00-modulepath.sh ]; then
-  SETMODULEPATH_SH="yes"
-fi
-
-if [ ! -f /etc/profile.d/00-modulepath.csh ]; then
-  SETMODULEPATH_CSH="yes"
-fi
-
-if [ $SETMODULEPATH_SH == "yes" ];then
-  echo 'export MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles' > /etc/profile.d/00-modulepath.sh
-fi
-if [ $SETMODULEPATH_CSH == "yes" ];then
-  echo 'setenv MODULEPATH=/etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles' > /etc/profile.d/00-modulepath.csh
-fi
 
 %files
 %doc INSTALL License README README_lua_modulefiles.txt
