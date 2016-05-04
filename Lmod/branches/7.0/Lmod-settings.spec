@@ -47,6 +47,8 @@ This package provides the default site configuraion for Lmod.
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d
 
+install -m 700 %{name}-%{version}-%{cmrelease}/00-modulepath.sh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.sh
+install -m 700 %{name}-%{version}-%{cmrelease}/00-modulepath.csh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.csh
 install -m 700 %{name}-%{version}-%{cmrelease}/00-user_is_root.sh %{buildroot}/%{_sysconfdir}/profile.d/00-user_is_root.sh
 install -m 700 %{name}-%{version}-%{cmrelease}/00-user_is_root.csh %{buildroot}/%{_sysconfdir}/profile.d/00-user_is_root.csh
 install -m 700 %{name}-%{version}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
