@@ -1,6 +1,7 @@
 %define cmrelease       7.0 
 %define release         cm7.0
 %define name            Lmod
+%define secname         Lmod-files
 %define version         6.3.1
 %define debug_package   %{nil}
 
@@ -29,6 +30,7 @@ Group:          Utilities/Shell
 License:        MIT and LGPLv2
 URL:            https://www.tacc.utexas.edu/tacc-projects/lmod
 Source0:        https://github.com/TACC/%{name}/archive/%{version}.tar.gz
+Source1:        Lmod-files-%{cmrelease}.tar.gz
 Packager:       Fotis/Johnny (Illumina/Bright Computing)
 BuildArch:      noarch
 BuildRequires:  lua
@@ -64,6 +66,7 @@ rm -r pkgs tools/json.lua
 #sed -i -e 's, pkgs , ,' Makefile.in
 # Remove unneeded shbangs
 sed -i -e '/^#!/d' init/*.in
+%setup -c -D -T -a 1
 
 
 %build
@@ -83,6 +86,12 @@ mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
 mkdir -p %{buildroot}%{_datadir}/modulefiles
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d
 
+install -m 700 %{secname}-%{cmrelease}/00-modulepath.sh %{buildroot}/%{_sysconfdir}/profile.d/000-modulepath.sh
+install -m 700 %{secname}-%{cmrelease}/00-modulepath.csh %{buildroot}/%{_sysconfdir}/profile.d/000-modulepath.csh
+install -m 700 %{secname}-%{cmrelease}/00-user_is_root.sh %{buildroot}/%{_sysconfdir}/profile.d/000-user_is_root.sh
+install -m 700 %{secname}-%{cmrelease}/00-user_is_root.csh %{buildroot}/%{_sysconfdir}/profile.d/000-user_is_root.csh
+install -m 700 %{secname}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z001-default_modules.sh
+install -m 700 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z001-default_modules.csh
 ln -s %{_datadir}/lmod/lmod/init/profile %{buildroot}%{_sysconfdir}/profile.d/z00_lmod.sh
 ln -s %{_datadir}/lmod/lmod/init/cshrc %{buildroot}%{_sysconfdir}/profile.d/z00_lmod.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
@@ -111,6 +120,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/modulefiles
 %{_sysconfdir}/profile.d/z00_lmod.csh
 %{_sysconfdir}/profile.d/z00_lmod.sh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/000-modulepath.sh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/000-modulepath.csh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/000-user_is_root.sh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/000-user_is_root.csh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/z001-default_modules.sh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/z001-default_modules.csh
 %{_datadir}/lmod
 %{_datadir}/modulefiles
 # %{macrosdir}/macros.%{name}
