@@ -8,20 +8,20 @@ else export RPMDIR=/usr/src/packages/SOURCES
 fi
 
 
-NAME=Lmod-site-config
+NAME=Lmod-files
 CMVERSION=7.0
-LMODVERSION=6.1.7
 
 export CWD=`pwd`
 cd $CWD
 
 TMPDIR=/tmp/$NAME-build-$RANDOM
 
-mkdir -p $TMPDIR/$NAME-$LMODVERSION-$CMVERSION
+mkdir -p $TMPDIR/$NAME-$CMVERSION
 
-cp 00-user_is_root.sh $TMPDIR/$NAME-$LMODVERSION-$CMVERSION
+cp *.sh $TMPDIR/$NAME-$CMVERSION
+cp *.csh $TMPDIR/$NAME-$CMVERSION
 
 
 cd $TMPDIR
-tar -zcvf $RPMDIR/$NAME-$CMVERSION.tar.gz $NAME-$LMODVERSION-$CMVERSION
+tar -zcvf $RPMDIR/$NAME-$CMVERSION.tar.gz $NAME-$CMVERSION
 rm -rf $TMPDIR
