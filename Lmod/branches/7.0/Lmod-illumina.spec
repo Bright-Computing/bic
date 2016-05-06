@@ -86,12 +86,12 @@ mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
 mkdir -p %{buildroot}%{_datadir}/modulefiles
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d
 
-install -m 700 %{secname}-%{cmrelease}/00-modulepath.sh %{buildroot}/%{_sysconfdir}/profile.d/000-modulepath.sh
-install -m 700 %{secname}-%{cmrelease}/00-modulepath.csh %{buildroot}/%{_sysconfdir}/profile.d/000-modulepath.csh
-install -m 700 %{secname}-%{cmrelease}/00-user_is_root.sh %{buildroot}/%{_sysconfdir}/profile.d/000-user_is_root.sh
-install -m 700 %{secname}-%{cmrelease}/00-user_is_root.csh %{buildroot}/%{_sysconfdir}/profile.d/000-user_is_root.csh
-install -m 700 %{secname}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z001-default_modules.sh
-install -m 700 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z001-default_modules.csh
+install -m 700 %{secname}-%{cmrelease}/000-modulepath.sh %{buildroot}/%{_sysconfdir}/profile.d/000-modulepath.sh
+install -m 700 %{secname}-%{cmrelease}/000-modulepath.csh %{buildroot}/%{_sysconfdir}/profile.d/000-modulepath.csh
+install -m 700 %{secname}-%{cmrelease}/000-user_is_root.sh %{buildroot}/%{_sysconfdir}/profile.d/000-user_is_root.sh
+install -m 700 %{secname}-%{cmrelease}/000-user_is_root.csh %{buildroot}/%{_sysconfdir}/profile.d/000-user_is_root.csh
+install -m 700 %{secname}-%{cmrelease}/z001-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z001-default_modules.sh
+install -m 700 %{secname}-%{cmrelease}/z001-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z001-default_modules.csh
 ln -s %{_datadir}/lmod/lmod/init/profile %{buildroot}%{_sysconfdir}/profile.d/z00_lmod.sh
 ln -s %{_datadir}/lmod/lmod/init/cshrc %{buildroot}%{_sysconfdir}/profile.d/z00_lmod.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
