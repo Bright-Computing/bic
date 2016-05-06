@@ -10,7 +10,8 @@
 %define sles11      %(test -e /etc/SuSE-release && test $(awk '$1=="VERSION"{printf $3}' /etc/SuSE-release) = "11" && echo 1 || echo 0)
 %define sles12      %(test -e /etc/os-release && source /etc/os-release && echo "${ID}  ${VERSION_ID}" | grep -q "^sles  12" && echo 1 || echo 0)
                 
-%define git_rev     %(git rev-list --count --first-parent HEAD)
+# %define git_rev     %(git rev-list --count --first-parent HEAD)
+%define git_rev     30
 %define git_tag     %(git describe --always)
 %define lmod_upstream_gitid git-669af9b
 

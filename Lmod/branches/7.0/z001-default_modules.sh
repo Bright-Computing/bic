@@ -4,7 +4,9 @@ if [ -z "$__Init_Default_Modules" -o -z "$LD_LIBRARY_PATH" ]; then
      if [ -f "/usr/share/modulefiles/DefaultModules.lua" ];then
        export LMOD_SYSTEM_DEFAULT_MODULES="DefaultModules"
      else
-       export LMOD_SYSTEM_DEFAULT_MODULES="StdEnv"
+       if [ -f "/usr/share/modulefiles/StdEnv.lua" ];then
+         export LMOD_SYSTEM_DEFAULT_MODULES="StdEnv"
+       fi
      fi
    fi
    module --initial_load restore
