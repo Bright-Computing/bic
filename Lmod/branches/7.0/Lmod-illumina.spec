@@ -89,10 +89,10 @@ mkdir -p %{buildroot}%{_sysconfdir}/profile.d
 
 install -m 700 %{secname}-%{cmrelease}/00-modulepath.sh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.sh
 install -m 700 %{secname}-%{cmrelease}/00-modulepath.csh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.csh
-install -m 700 %{secname}-%{cmrelease}/0-0-USER_IS_ROOT.sh %{buildroot}/%{_sysconfdir}/profile.d/0-0-USER_IS_ROOT.sh
-install -m 700 %{secname}-%{cmrelease}/0-0-USER_IS_ROOT.csh %{buildroot}/%{_sysconfdir}/profile.d/0-0-USER_IS_ROOT.csh
-install -m 700 %{secname}-%{cmrelease}/z001-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z001-default_modules.sh
-install -m 700 %{secname}-%{cmrelease}/z001-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z001-default_modules.csh
+install -m 700 %{secname}-%{cmrelease}/00-USER_IS_ROOT.sh %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
+install -m 700 %{secname}-%{cmrelease}/00-USER_IS_ROOT.csh %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
+install -m 700 %{secname}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
+install -m 700 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
 ln -s %{_datadir}/lmod/lmod/init/profile %{buildroot}%{_sysconfdir}/profile.d/z00_lmod.sh
 ln -s %{_datadir}/lmod/lmod/init/cshrc %{buildroot}%{_sysconfdir}/profile.d/z00_lmod.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
@@ -123,10 +123,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/profile.d/z00_lmod.sh
 %config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
 %config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/00-modulepath.csh
-%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/0-0-USER_IS_ROOT.sh
-%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/0-0-USER_IS_ROOT.csh
-%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/z001-default_modules.sh
-%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/z001-default_modules.csh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/z01-default_modules.sh
+%config(noreplace) %attr(700, root, root) %{_sysconfdir}/profile.d/z01-default_modules.csh
 %{_datadir}/lmod
 %{_datadir}/modulefiles
 # %{macrosdir}/macros.%{name}
