@@ -91,10 +91,10 @@ install -m 644 %{secname}-%{cmrelease}/00-modulepath.sh %{buildroot}/%{_sysconfd
 install -m 644 %{secname}-%{cmrelease}/00-modulepath.csh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.csh
 install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.sh %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
 install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.csh %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
+install -m 644 %{secname}-%{cmrelease}/z00_lmod.sh %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.sh
+install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.csh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
-ln -s %{_datadir}/lmod/lmod/init/profile %{buildroot}%{_sysconfdir}/profile.d/z00_lmod.sh
-ln -s %{_datadir}/lmod/lmod/init/cshrc %{buildroot}%{_sysconfdir}/profile.d/z00_lmod.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
 
 %if %{sles11}
@@ -119,12 +119,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc INSTALL License README README_lua_modulefiles.txt
 %{_sysconfdir}/site/lmod/SitePackage.lua
 %{_sysconfdir}/modulefiles
-%{_sysconfdir}/profile.d/z00_lmod.csh
-%{_sysconfdir}/profile.d/z00_lmod.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z00_lmod.sh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z00_lmod.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.csh
 %{_datadir}/lmod
