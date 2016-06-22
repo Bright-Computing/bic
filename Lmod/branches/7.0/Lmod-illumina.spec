@@ -13,7 +13,7 @@
 # %define git_rev     %(git rev-list --count --first-parent HEAD)
 %define git_rev     30
 %define git_tag     %(git describe --always)
-%define lmod_upstream_gitid git-48e934f
+%define lmod_upstream_gitid git-2e415be
 
 %if %{rhel6_based}
 %define release %{git_rev}_%{git_tag}_cm%{cmrelease}_el6
