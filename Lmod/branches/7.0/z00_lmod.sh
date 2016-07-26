@@ -37,9 +37,17 @@ if [ -z "${USER_IS_ROOT:-}" ]; then
     export MANPATH=$(/usr/share/lmod/lmod/libexec/addto MANPATH /usr/share/lmod/lmod/share/man)
   fi
 
-  my_shell=$(/usr/bin/ps -p $$ -ocomm=)
+  PS_COMMAND=/usr/bin/ps
+  BASENAME_COMMAND=/usr/bin/basename
+  if [ ! -e $PS_COMMAND ];then
+    PS_COMMAND=/bin/ps
+  fi
+  if [ ! -e $BASENAME_COMMAND ];then
+    BASENAME_COMMAND=/bin/basename
+  fi
+  my_shell=$($PS_COMMAND -p $$ -ocomm=)
   my_shell=$(/usr/bin/expr "$my_shell" : '-*\(.*\)')
-  my_shell=$(/usr/bin/basename $my_shell)
+  my_shell=$($BASENAME_COMMAND $my_shell)
   if [ -f /usr/share/lmod/lmod/init/$my_shell ]; then
      .    /usr/share/lmod/lmod/init/$my_shell >/dev/null # Module Support
   else
