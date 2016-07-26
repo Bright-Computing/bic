@@ -109,6 +109,10 @@ done
 sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}/usr/share/lmod/%{version}/libexec/Version.lua
 sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}/usr/share/lmod/%{version}/settarg/Version.lua
 
+# Fix BASHENV issue
+if [ -f "%{buildroot}/usr/share/lmod/%{version}/init/bash" ];then
+  sed -i '2i set +x' %{buildroot}//usr/share/lmod/%{version}/init/bash
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
