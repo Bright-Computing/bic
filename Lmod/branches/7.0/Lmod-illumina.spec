@@ -2,7 +2,7 @@
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         6.4.4
+%define version         6.4.5
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -13,7 +13,7 @@
 # %define git_rev     %(git rev-list --count --first-parent HEAD)
 %define git_rev     30
 %define git_tag     %(git describe --always)
-%define lmod_upstream_gitid git-173d7ed
+%define lmod_upstream_gitid git-1a440d7
 
 %if %{rhel6_based}
 %define release %{git_rev}_%{git_tag}_cm%{cmrelease}_el6
@@ -96,6 +96,7 @@ install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh %{buildroot}/%{_sysconfdir}/
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
+
 
 %if %{sles11}
 # For sles11 /usr/bin/lua is not in the rpm file list, its created with the alternatives-update command in the post section of the lua package.
