@@ -37,21 +37,39 @@ if [ -z "${USER_IS_ROOT:-}" ]; then
     export MANPATH=$(/usr/share/lmod/lmod/libexec/addto MANPATH /usr/share/lmod/lmod/share/man)
   fi
 
-  PS_COMMAND=/usr/bin/ps
-  BASENAME_COMMAND=/usr/bin/basename
-  if [ ! -e $PS_COMMAND ];then
-    PS_COMMAND=/bin/ps
+  PS_CMD=/usr/bin/ps
+  if [ ! -x $PS_CMD ]; then
+      if   [ -x /bin/ps ]; then
+          PS_CMD=/bin/ps
+      elif [ -x /usr/bin/ps ]; then
+          PS_CMD=/usr/bin/ps
+      fi
   fi
-  if [ ! -e $BASENAME_COMMAND ];then
-    BASENAME_COMMAND=/bin/basename
+  EXPR_CMD=/usr/bin/expr
+  if [ ! -x $EXPR_CMD ]; then
+      if   [ -x /usr/bin/expr ]; then
+          EXPR_CMD=/usr/bin/expr
+      elif [ -x /bin/expr ]; then
+          EXPR_CMD=/bin/expr
+      fi
   fi
-  my_shell=$($PS_COMMAND -p $$ -ocomm=)
-  my_shell=$(/usr/bin/expr "$my_shell" : '-*\(.*\)')
-  my_shell=$($BASENAME_COMMAND $my_shell)
+  BASENAME_CMD=/usr/bin/basename
+  if [ ! -x $BASENAME_CMD ]; then
+      if   [ -x /bin/basename ]; then
+          BASENAME_CMD=/bin/basename
+      elif [ -x /usr/bin/basename ]; then
+          BASENAME_CMD=/usr/bin/basename
+      fi
+  fi
+
+
+  my_shell=$($PS_CMD -p $$ -ocomm=)
+  my_shell=$($EXPR_CMD    "$my_shell" : '-*\(.*\)')
+  my_shell=$($BASENAME_CMD $my_shell)
   if [ -f /usr/share/lmod/lmod/init/$my_shell ]; then
      .    /usr/share/lmod/lmod/init/$my_shell >/dev/null # Module Support
   else
      .    /usr/share/lmod/lmod/init/sh        >/dev/null # Module Support
   fi
-  unset my_shell
+  unset my_shell PS_CMD EXPR_CMD BASENAME_CMD
 fi
