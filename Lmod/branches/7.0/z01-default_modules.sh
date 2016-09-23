@@ -1,4 +1,4 @@
-if [ -z "$__Init_Default_Modules" -o -z "$LD_LIBRARY_PATH" ]; then
+if [ -z "$__Init_Default_Modules" ]; then
    export __Init_Default_Modules=1;
    if [ -z "$LMOD_SYSTEM_DEFAULT_MODULES" ];then
      if [ -f "/usr/share/modulefiles/DefaultModules.lua" ];then
