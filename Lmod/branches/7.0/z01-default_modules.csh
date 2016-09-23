@@ -1,4 +1,4 @@
-if ( ! $?__Init_Default_Modules || ! $?LD_LIBRARY_PATH )  then
+if ( ! $?__Init_Default_Modules )  then
   if ( ! $?LMOD_SYSTEM_DEFAULT_MODULES ) then
     if ( -f "/usr/share/modulefiles/DefaultModules.lua" ) then
       setenv LMOD_SYSTEM_DEFAULT_MODULES "DefaultModules"
