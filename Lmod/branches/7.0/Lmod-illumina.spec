@@ -86,6 +86,7 @@ chmod -x %{buildroot}%{_datadir}/lmod/%{version}/init/*
 mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
 mkdir -p %{buildroot}%{_datadir}/modulefiles
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d
+mkdir -p %{buildroot}%{_datadir}/lmod/%{version}/templates
 
 install -m 644 %{secname}-%{cmrelease}/00-modulepath.sh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.sh
 install -m 644 %{secname}-%{cmrelease}/00-modulepath.csh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.csh
@@ -96,6 +97,10 @@ install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh %{buildroot}/%{_sysconfdir}/
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
+
+# Install templates
+install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.sh %{buildroot}/%{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.sh
+install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.csh %{buildroot}/%{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.csh
 
 # Install the contrib directory
 cp -a contrib %{buildroot}%{_datadir}/lmod/%{version}
