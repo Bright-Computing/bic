@@ -97,6 +97,8 @@ install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sy
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
 
+# Install the contrib directory
+cp -a contrib %{buildroot}%{_datadir}/lmod/%{version}
 
 %if %{sles11}
 # For sles11 /usr/bin/lua is not in the rpm file list, its created with the alternatives-update command in the post section of the lua package.
