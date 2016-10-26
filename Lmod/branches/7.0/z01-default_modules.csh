@@ -1,3 +1,7 @@
+if ( ! $?USER_IS_ROOT ) then
+  exit
+endif
+
 if ( $?USER_IS_ROOT ) then
   if ( ! $?__Init_Default_Modules )  then
     if ( ! $?LMOD_SYSTEM_DEFAULT_MODULES ) then
