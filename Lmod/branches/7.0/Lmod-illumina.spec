@@ -1,3 +1,6 @@
+## This RPM .spec file will provide a build process for a cluster-ready Lmod: https://github.com/TACC/Lmod
+## Please provide feedback about it at collaboration repo: http://github.com/plabrop/bic
+
 %define cmrelease       7.0 
 %define release         cm7.0
 %define name            Lmod
@@ -11,7 +14,6 @@
 %define sles12      %(test -e /etc/os-release && source /etc/os-release && echo "${ID}  ${VERSION_ID}" | grep -q "^sles  12" && echo 1 || echo 0)
                 
 %define git_rev     %(git rev-list --count --first-parent HEAD)
-# %define git_tag     %(git describe --always)
 %define git_tag     079ce23
 %define lmod_upstream_gitid git-%{git_tag}
 
@@ -32,7 +34,7 @@ License:        MIT and LGPLv2
 URL:            https://www.tacc.utexas.edu/tacc-projects/lmod
 Source0:        https://github.com/TACC/%{name}/archive/%{version}.tar.gz
 Source1:        Lmod-files-%{cmrelease}.tar.gz
-Packager:       Fotis/Johnny (Illumina/Bright Computing)
+Packager:       Fotis/Johnny (illumina/Bright Computing)
 BuildArch:      noarch
 BuildRequires:  lua
 BuildRequires:  lua-devel
@@ -65,7 +67,7 @@ sed -i -e 's,/usr/bin/env ,/usr/bin/,' src/*.tcl
 # Remove bundled lua-term
 rm -r pkgs tools/json.lua
 #sed -i -e 's, pkgs , ,' Makefile.in
-# Remove unneeded shbangs
+# Remove unneeded shebangs
 sed -i -e '/^#!/d' init/*.in
 %setup -c -D -T -a 1
 
@@ -139,7 +141,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z00_lmod.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.csh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %{_datadir}/lmod
 %{_datadir}/modulefiles
 # %{macrosdir}/macros.%{name}
-
