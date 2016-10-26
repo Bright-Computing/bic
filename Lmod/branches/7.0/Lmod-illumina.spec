@@ -141,8 +141,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z00_lmod.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.csh
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %{_datadir}/lmod
 %{_datadir}/modulefiles
+%config(noreplace) %attr(644, root, root) %{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.sh
+%config(noreplace) %attr(644, root, root) %{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.csh
 # %{macrosdir}/macros.%{name}
