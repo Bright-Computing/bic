@@ -56,6 +56,7 @@ Requires:       lua-posix
 Requires:       lua-term
 Requires:       cm-config-cm = %cmrelease
 Provides:       environment(modules)
+Patch0:         lmod-bash-xtrace.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 
@@ -78,6 +79,7 @@ rm -r pkgs tools/json.lua
 sed -i -e '/^#!/d' init/*.in
 %setup -c -D -T -a 1
 
+%patch0 -p1
 
 %build
 %configure --prefix=%{_datadir}
@@ -125,11 +127,6 @@ done
 # Fix @gitid@ bug in upstream version
 sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}/usr/share/lmod/%{version}/libexec/Version.lua
 sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}/usr/share/lmod/%{version}/settarg/Version.lua
-
-# Fix BASHENV issue
-if [ -f "%{buildroot}/usr/share/lmod/%{version}/init/bash" ];then
-  sed -i '2i set +x' %{buildroot}//usr/share/lmod/%{version}/init/bash
-fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
