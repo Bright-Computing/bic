@@ -1,0 +1,13 @@
+--- Lmod-6.6/init/bash.in	2016-12-15 14:01:46.258628788 +0100
++++ Lmod-6.6-new/init/bash.in	2016-12-15 14:04:36.979331682 +0100
+@@ -1,4 +1,10 @@
+ # -*- shell-script -*-
++xtrace_saved="$(set -o | grep xtrace | grep 'on')";
++set +x
++
++[ -n "$xtrace_saved" ] && set -x 
++unset xtrace_saved
++
+ if [[ ${-/x} != $- ]]; then
+    echo "Start of Lmod init/bash script to define the module command"
+ fi

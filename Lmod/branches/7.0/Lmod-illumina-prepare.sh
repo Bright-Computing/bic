@@ -16,11 +16,12 @@ cd $CWD
 
 TMPDIR=/tmp/$NAME-build-$RANDOM
 
+cp *.patch $RPMDIR/
+
 mkdir -p $TMPDIR/$NAME-$CMVERSION
 
 cp *.sh $TMPDIR/$NAME-$CMVERSION
 cp *.csh $TMPDIR/$NAME-$CMVERSION
-
 
 cd $TMPDIR
 tar -zcvf $RPMDIR/$NAME-$CMVERSION.tar.gz $NAME-$CMVERSION
