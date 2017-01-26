@@ -1,4 +1,6 @@
-[ -z "$USER_IS_ROOT" ] && exit
+[ -n "$USER_IS_ROOT" ] && exit
+
+# Lmod is initialized only for non-root users
 
 if [ -z "$__Init_Default_Modules" ]; then
   export __Init_Default_Modules=1;

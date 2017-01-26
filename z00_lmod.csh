@@ -11,6 +11,8 @@ if ( $?USER_IS_ROOT ) then
   exit
 endif
 
+# Lmod is initialized only for non-root users
+
 if ( ! $?MODULEPATH_ROOT ) then
   if ( $?USER) then
       setenv USER $LOGNAME
