@@ -1,8 +1,8 @@
-if ( $?USER_IS_ROOT ) then
+# Skip Lmod initialization if USER_IS_ROOT or LMOD_DISABLE is set
+
+if ( $?USER_IS_ROOT || $?LMOD_DISABLE ) then
   exit
 endif
-
-# Lmod is initialized only for non-root users
 
 if ( ! $?__Init_Default_Modules )  then
   if ( ! $?LMOD_SYSTEM_DEFAULT_MODULES ) then

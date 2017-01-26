@@ -5,11 +5,9 @@
 #
 ########################################################################
 
-if [ -n "${USER_IS_ROOT}" ];then
-  exit
-fi
+# Skip Lmod initialization if USER_IS_ROOT or LMOD_DISABLE is set
 
-# Lmod is initialized only for non-root users
+([ -n "$USER_IS_ROOT" ] || [ -n "$LMOD_DISABLE" ]) && exit
 
 if [ -z "${MODULEPATH_ROOT:-}" ]; then
   export USER=${USER-${LOGNAME}}  # make sure $USER is set
