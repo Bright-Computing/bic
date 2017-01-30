@@ -1,4 +1,6 @@
-[ -z "$USER_IS_ROOT" ] && exit
+# Skip Lmod initialization if USER_IS_ROOT or LMOD_DISABLE is set
+
+([ -n "$USER_IS_ROOT" ] || [ -n "$LMOD_DISABLE" ]) && exit
 
 if [ -z "$__Init_Default_Modules" ]; then
   export __Init_Default_Modules=1;
