@@ -2,7 +2,7 @@
 +++ Lmod-7.4.3-new/init/bash.in	2017-04-03 19:06:46.832137320 +0200
 @@ -1,4 +1,6 @@
  # -*- shell-script -*-
-+xrace_saved="$(set -o | grep xtrace | grep 'on')";
++xtrace_saved="$(set -o | grep xtrace | grep 'on')";
 +set +x
  #
  ########################################################################
