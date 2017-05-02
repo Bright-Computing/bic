@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list master --first-parent | wc -l)
 %endif
 
-%define git_tag     048a821
+%define git_tag     afd6acd
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
