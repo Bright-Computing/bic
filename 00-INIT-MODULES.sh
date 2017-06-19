@@ -4,9 +4,7 @@ if [ -z "$MODULEPATH" ]; then
 
   ## Initializations
   export LMOD_RC=/etc/site/extras/lmodrc.lua
-  ##export LMOD_SYSTEM_NAME=AVX2
-  ##export LMOD_SYSTEM_DEFAULT_MODULES="HPCBIOS/2015q2 sge"
-  export LMOD_SYSTEM_DEFAULT_MODULES="use.own use.own.eb" ## "sge cluster"
+  export LMOD_SYSTEM_DEFAULT_MODULES="use.own use.own.eb" ## "HPCBIOS/2015q2 sge cluster"
   export LMOD_PACKAGE_PATH=/etc/site/lmod
   export LMOD_TMOD_FIND_FIRST=true
 
