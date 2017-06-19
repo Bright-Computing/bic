@@ -91,6 +91,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 mkdir -p %{buildroot}%{_sysconfdir}/site/lmod      ## Local lmod customizations, fi. SitePackage.lua
 mkdir -p %{buildroot}%{_sysconfdir}/site/modules   ## intentionally distinct from /etc/modulefiles, for more control
+mkdir -p %{buildroot}%{_sysconfdir}/site/extras    ## we insert here special configuration files etc
 install -m 644 contrib/Bright/SitePackage.lua        %{buildroot}%{_sysconfdir}/site/lmod/SitePackage.lua
 ##install -m 644 contrib/SitePackage/SitePackage.lua   %{buildroot}%{_sysconfdir}/site/modules/settarg
 ##install -m 644 contrib/use.own.eb                    %{buildroot}%{_sysconfdir}/site/modules/
@@ -123,11 +124,12 @@ install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_s
 ## install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.csh     %{buildroot}/%{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.csh
 
 # Install the contrib directory
-cp -a contrib                  %{buildroot}%{_datadir}/lmod/%{version}
-# copy settarg files
-##cp -a modulefiles/Core/settarg %{buildroot}%{_sysconfdir}/site/modules
-ln -s /usr/share/lmod/lmod/modulefiles/Core/settarg    %{buildroot}%{_sysconfdir}/site/modules
+cp -a contrib                                          %{buildroot}%{_datadir}/lmod/%{version}
 cp -a contrib/use.own.eb                               %{buildroot}%{_sysconfdir}/site/modules
+# this symlink ensures settarg functionality
+ln -s /usr/share/lmod/lmod/modulefiles/Core/settarg    %{buildroot}%{_sysconfdir}/site/modules
+# this defines coloring and where the cache lives
+cp -a %{secname}-%{cmrelease}/lmodrc.lua               %{buildroot}%{_sysconfdir}/site/extras
 
 %if %{sles11}
 # For sles11 /usr/bin/lua is not in the rpm file list, its created with the alternatives-update command in the post section of the lua package.
