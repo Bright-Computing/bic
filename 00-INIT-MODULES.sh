@@ -8,5 +8,6 @@ if [ -z "$MODULEPATH" ]; then
   ##export LMOD_SYSTEM_DEFAULT_MODULES="HPCBIOS/2015q2 sge"
   export LMOD_SYSTEM_DEFAULT_MODULES="sge cluster"
   export LMOD_PACKAGE_PATH=/etc/site/lmod
+  export LMOD_TMOD_FIND_FIRST=true
 
 fi

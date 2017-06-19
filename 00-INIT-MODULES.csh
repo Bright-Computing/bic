@@ -8,5 +8,6 @@ if (! $?MODULEPATH) then
   ##setenv LMOD_SYSTEM_DEFAULT_MODULES "HPCBIOS/2015q2 sge"
   setenv LMOD_SYSTEM_DEFAULT_MODULES "sge cluster"
   setenv LMOD_PACKAGE_PATH           /etc/site/lmod
+  setenv LMOD_TMOD_FIND_FIRST        true
 
 endif
