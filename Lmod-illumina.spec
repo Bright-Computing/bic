@@ -152,10 +152,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %doc INSTALL License README.md README.new README_lua_modulefiles.txt
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/modules
+%config(noreplace) %attr(755, root, root) %{_sysconfdir}/site/modules
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/SitePackage.lua
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/extras/lmodrc.lua
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/modulefiles
+%config(noreplace) %attr(755, root, root) %{_sysconfdir}/modulefiles
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
