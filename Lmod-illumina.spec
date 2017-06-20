@@ -49,6 +49,10 @@ BuildRequires:  lua-filesystem
 BuildRequires:  lua-json
 BuildRequires:  lua-posix
 BuildRequires:  lua-term
+%if %{rhel6_based}
+BuildRequires:  lua-bit32
+Requires:  lua-bit32
+%endif
 Requires:       lua
 Requires:       lua-filesystem
 Requires:       lua-json
@@ -93,8 +97,6 @@ mkdir -p %{buildroot}%{_sysconfdir}/site/lmod      ## Local lmod customizations,
 mkdir -p %{buildroot}%{_sysconfdir}/site/modules   ## intentionally distinct from /etc/modulefiles, for more control
 mkdir -p %{buildroot}%{_sysconfdir}/site/extras    ## we insert here special configuration files etc
 install -m 644 contrib/Bright/SitePackage.lua        %{buildroot}%{_sysconfdir}/site/lmod/SitePackage.lua
-##install -m 644 contrib/SitePackage/SitePackage.lua   %{buildroot}%{_sysconfdir}/site/modules/settarg
-##install -m 644 contrib/use.own.eb                    %{buildroot}%{_sysconfdir}/site/modules/
 
 # init scripts are sourced
 chmod -x %{buildroot}%{_datadir}/lmod/%{version}/init/*
@@ -150,8 +152,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %doc INSTALL License README.md README.new README_lua_modulefiles.txt
-%{_sysconfdir}/site
-%{_sysconfdir}/modulefiles
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/modules
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/SitePackage.lua
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/extras/lmodrc.lua
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/modulefiles
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
