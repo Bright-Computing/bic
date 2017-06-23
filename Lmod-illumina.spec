@@ -5,7 +5,7 @@
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.5.3
+%define version         7.5.4
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list master --first-parent | wc -l)
 %endif
 
-%define git_tag     a7d0ac3
+%define git_tag     16d6146
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
@@ -93,9 +93,8 @@ make %{?_smp_mflags}
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
 
-mkdir -p %{buildroot}%{_sysconfdir}/site/lmod      ## Local lmod customizations, fi. SitePackage.lua
+mkdir -p %{buildroot}%{_sysconfdir}/site/lmod      ## Local lmod customizations, fi. SitePackage.lua, lmodrc.lua
 mkdir -p %{buildroot}%{_sysconfdir}/site/modules   ## intentionally distinct from /etc/modulefiles, for more control
-mkdir -p %{buildroot}%{_sysconfdir}/site/extras    ## we insert here special configuration files etc
 install -m 644 contrib/Bright/SitePackage.lua        %{buildroot}%{_sysconfdir}/site/lmod/SitePackage.lua
 
 # init scripts are sourced
@@ -131,7 +130,7 @@ cp -a contrib/use.own.eb                               %{buildroot}%{_sysconfdir
 # this symlink ensures settarg functionality
 ln -s /usr/share/lmod/lmod/modulefiles/Core/settarg    %{buildroot}%{_sysconfdir}/site/modules
 # this defines coloring and where the cache lives
-cp -a %{secname}-%{cmrelease}/lmodrc.lua               %{buildroot}%{_sysconfdir}/site/extras
+cp -a %{secname}-%{cmrelease}/lmodrc.lua               %{buildroot}%{_sysconfdir}/site/lmod
 
 %if %{sles11}
 # For sles11 /usr/bin/lua is not in the rpm file list, its created with the alternatives-update command in the post section of the lua package.
@@ -154,7 +153,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc INSTALL License README.md README.new README_lua_modulefiles.txt
 %config(noreplace) %attr(755, root, root) %{_sysconfdir}/site/modules
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/SitePackage.lua
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/extras/lmodrc.lua
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/lmodrc.lua
 %config(noreplace) %attr(755, root, root) %{_sysconfdir}/modulefiles
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
