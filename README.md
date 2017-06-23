@@ -1,5 +1,5 @@
 # bic
-Bright-<b>i</b>llumina collaboration
+<b>B</b>right-<b>i</b>llumina <b>c</b>ollaboration
 
 This repository holds prototype versions of Lmod, with improved and modernized `.spec` files,
 whereby startup scripts sequence under `/etc/profile.d` is as generic as possible and
