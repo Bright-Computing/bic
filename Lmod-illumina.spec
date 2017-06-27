@@ -5,7 +5,7 @@
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.5.5
+%define version         7.5.6
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list master --first-parent | wc -l)
 %endif
 
-%define git_tag     9ae594d
+%define git_tag     8c82dea
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
@@ -99,7 +99,6 @@ install -m 644 contrib/Bright/SitePackage.lua        %{buildroot}%{_sysconfdir}/
 
 # init scripts are sourced
 chmod -x %{buildroot}%{_datadir}/lmod/%{version}/init/*
-mkdir -p %{buildroot}%{_datadir}/lmod/%{version}/templates
 mkdir -p %{buildroot}%{_datadir}/modulefiles
 mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d
@@ -119,10 +118,6 @@ install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh            %{buildroot}/%{_s
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh  %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
-
-## # Install templates
-## install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.sh      %{buildroot}/%{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.sh
-## install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.csh     %{buildroot}/%{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.csh
 
 # Install the contrib directory
 cp -a contrib                                          %{buildroot}%{_datadir}/lmod/%{version}
@@ -167,6 +162,4 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.csh
 %{_datadir}/lmod
 %{_datadir}/modulefiles
-## %config(noreplace) %attr(644, root, root) %{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.sh
-## %config(noreplace) %attr(644, root, root) %{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.csh
 # %{macrosdir}/macros.%{name}
