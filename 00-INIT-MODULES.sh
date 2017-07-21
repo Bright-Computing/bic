@@ -4,7 +4,7 @@ if [ -z "$MODULEPATH" ]; then
 
   ## Initializations
   export LMOD_RC=/etc/site/lmod/lmodrc.lua
-  export LMOD_SYSTEM_DEFAULT_MODULES="use.own.eb" ## "HPCBIOS/2015q2 sge cluster"
+  export LMOD_SYSTEM_DEFAULT_MODULES="settarg use.own.eb" ## "HPCBIOS/2015q2 sge cluster"
   export LMOD_PACKAGE_PATH=/etc/site/lmod
   export LMOD_TMOD_FIND_FIRST=true
   export LMOD_ADMIN_FILE=/dev/shm/lmod/lmod_admin_file
