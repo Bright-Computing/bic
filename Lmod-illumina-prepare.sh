@@ -2,11 +2,12 @@
 
 export CWD=`pwd`
 
+RPMDIR=$HOME/rpmbuild/SOURCES
 if [ -d /usr/src/redhat ]
-then export RPMDIR=/usr/src/redhat/SOURCES
-else export RPMDIR=/usr/src/packages/SOURCES
+ then if [ ! -x $RPMDIR ]
+  then export RPMDIR=/usr/src/redhat/SOURCES
+ fi
 fi
-
 
 NAME=Lmod-files
 CMVERSION=7.0
