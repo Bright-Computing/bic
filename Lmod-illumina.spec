@@ -18,7 +18,7 @@
 %endif
 
 %if %{rhel6_based}
-%define git_rev     %(git rev-list master --first-parent | wc -l)
+%define git_rev     %(git rev-list HEAD --first-parent | wc -l) ## let's refer to current branch instead
 %endif
 
 %define git_tag     11012bc
