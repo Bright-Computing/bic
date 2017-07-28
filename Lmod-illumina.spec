@@ -5,7 +5,7 @@
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.5.0
+%define version         7.6
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -18,10 +18,10 @@
 %endif
 
 %if %{rhel6_based}
-%define git_rev     %(git rev-list master --first-parent | wc -l)
+%define git_rev     %(git rev-list HEAD --first-parent | wc -l)
 %endif
 
-%define git_tag     dfe38e4
+%define git_tag     11012bc
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
@@ -49,12 +49,16 @@ BuildRequires:  lua-filesystem
 BuildRequires:  lua-json
 BuildRequires:  lua-posix
 BuildRequires:  lua-term
+%if %{rhel6_based}
+BuildRequires:  lua-bit32
+Requires:  lua-bit32
+%endif
 Requires:       lua
 Requires:       lua-filesystem
 Requires:       lua-json
 Requires:       lua-posix
 Requires:       lua-term
-Requires:       cm-config-cm = %cmrelease
+###Requires:       cm-config-cm = %cmrelease  ### unhash me when all is fine
 Provides:       environment(modules)
 Patch0:         lmod-bash-xtrace.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -89,32 +93,39 @@ make %{?_smp_mflags}
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
 
-mkdir -p %{buildroot}%{_sysconfdir}/site/lmod
-install -m 644 contrib/SitePackage/SitePackage.lua %{buildroot}%{_sysconfdir}/site/lmod/SitePackage.lua
+mkdir -p %{buildroot}%{_sysconfdir}/site/lmod      ## Local lmod customizations, fi. SitePackage.lua, lmodrc.lua
+mkdir -p %{buildroot}%{_sysconfdir}/site/modules   ## intentionally distinct from /etc/modulefiles, for more control
+install -m 644 contrib/Bright/SitePackage.lua        %{buildroot}%{_sysconfdir}/site/lmod/SitePackage.lua
 
 # init scripts are sourced
 chmod -x %{buildroot}%{_datadir}/lmod/%{version}/init/*
-mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
 mkdir -p %{buildroot}%{_datadir}/modulefiles
+mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d
-mkdir -p %{buildroot}%{_datadir}/lmod/%{version}/templates
 
-install -m 644 %{secname}-%{cmrelease}/00-modulepath.sh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.sh
-install -m 644 %{secname}-%{cmrelease}/00-modulepath.csh %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.csh
-install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.sh %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
-install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.csh %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
-install -m 644 %{secname}-%{cmrelease}/z00_lmod.sh %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.sh
-install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.csh
-install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
+# Local business customization
+install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.sh      %{buildroot}/%{_sysconfdir}/profile.d/00-INIT-MODULES.sh
+install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.csh     %{buildroot}/%{_sysconfdir}/profile.d/00-INIT-MODULES.csh
+# guarded definition of $MODULEPATH, could be overwritten above
+install -m 644 %{secname}-%{cmrelease}/00-modulepath.sh        %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.sh
+install -m 644 %{secname}-%{cmrelease}/00-modulepath.csh       %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.csh
+# This is escape valve for user root, so that no parallel fs default modulefiles would be loaded (fi. sge)
+install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.sh      %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
+install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.csh     %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
+# This is Lmod shell initialization; the last couple files do defaults & restores
+install -m 644 %{secname}-%{cmrelease}/z00_lmod.sh             %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.sh
+install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh            %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.csh
+install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh  %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
 
-# Install templates
-install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.sh %{buildroot}/%{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.sh
-install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.csh %{buildroot}/%{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.csh
-
 # Install the contrib directory
-cp -a contrib %{buildroot}%{_datadir}/lmod/%{version}
+cp -a contrib                                          %{buildroot}%{_datadir}/lmod/%{version}
+cp -a contrib/use.own.eb                               %{buildroot}%{_sysconfdir}/site/modules
+# this symlink ensures settarg functionality
+ln -s /usr/share/lmod/lmod/modulefiles/Core/settarg    %{buildroot}%{_sysconfdir}/site/modules
+# this defines coloring and where the cache lives
+cp -a %{secname}-%{cmrelease}/lmodrc.lua               %{buildroot}%{_sysconfdir}/site/lmod
 
 %if %{sles11}
 # For sles11 /usr/bin/lua is not in the rpm file list, its created with the alternatives-update command in the post section of the lua package.
@@ -135,8 +146,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %doc INSTALL License README.md README.new README_lua_modulefiles.txt
-%{_sysconfdir}/site/lmod/SitePackage.lua
-%{_sysconfdir}/modulefiles
+%config(noreplace) %attr(755, root, root) %{_sysconfdir}/site/modules
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/SitePackage.lua
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/lmodrc.lua
+%config(noreplace) %attr(755, root, root) %{_sysconfdir}/modulefiles
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
@@ -147,6 +162,4 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.csh
 %{_datadir}/lmod
 %{_datadir}/modulefiles
-%config(noreplace) %attr(644, root, root) %{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.sh
-%config(noreplace) %attr(644, root, root) %{_datadir}/lmod/%{version}/templates/00-INIT-MODULES.csh
 # %{macrosdir}/macros.%{name}
