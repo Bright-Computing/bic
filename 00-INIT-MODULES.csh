@@ -8,4 +8,5 @@ if (! $?MODULEPATH) then
   setenv LMOD_TMOD_FIND_FIRST        yes
   setenv LMOD_ADMIN_FILE             /dev/shm/lmod/lmod_admin_file
   setenv LMOD_PACKAGE_PATH           /etc/site/lmod
+
 endif
