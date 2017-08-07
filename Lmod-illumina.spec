@@ -5,7 +5,7 @@
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.6.1
+%define version         7.6.3
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list HEAD --first-parent | wc -l)
 %endif
 
-%define git_tag     4753593
+%define git_tag     3f4cc30
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
@@ -134,10 +134,6 @@ for FILE in `find ${RPM_BUILD_ROOT}%{_datadir} -type f`; do
   sed -i '1!b;s%^#\!/usr/bin/lua%#\!/usr/bin/lua5.1%' ${FILE}
 done
 %endif
-
-# Fix @gitid@ bug in upstream version
-sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}/usr/share/lmod/%{version}/libexec/Version.lua
-sed -i 's/local s = "@git@"/local s = "(%{lmod_upstream_gitid})"/g' %{buildroot}/usr/share/lmod/%{version}/settarg/Version.lua
 
 %clean
 rm -rf $RPM_BUILD_ROOT
