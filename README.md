@@ -7,4 +7,5 @@ minimal assumptions are made against the delivery environment (ie. sysadmins ret
 
 The effort is beyond prototype stage, as of Aug 2017, and is mainly here for testing & refining the RPM generation process.
 Typically, the RPM build is just a matter of typing:
-* LMOD_FULL_SETTARG_SUPPORT=yes time rpmbuild -ba Lmod-illumina.spec
+
+  * time rpmbuild -ba Lmod-illumina.spec
