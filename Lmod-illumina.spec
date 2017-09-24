@@ -5,7 +5,7 @@
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.7
+%define version         7.7.1
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list HEAD --first-parent | wc -l)
 %endif
 
-%define git_tag     c5d4b5d
+%define git_tag     66e01e9
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
