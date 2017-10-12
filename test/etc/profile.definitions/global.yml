@@ -1,0 +1,11 @@
+## global definitions
+GLOBAL:
+  DEBUG: yes
+  VERBOSE: no
+  DEBUGGING:
+    DETAILED: no
+    HEADER: "debugging started"
+
+## output
+output:
+   file: "yes"
