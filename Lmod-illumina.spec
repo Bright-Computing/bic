@@ -86,7 +86,7 @@ sed -i -e '/^#!/d' init/*.in
 %patch0 -p1
 
 %build
-%configure --prefix=%{_datadir}
+%configure --prefix=%{_datadir} --with-settarg=FULL
 make %{?_smp_mflags}
 
 
