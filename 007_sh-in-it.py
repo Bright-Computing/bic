@@ -20,7 +20,6 @@ def shell_out(dct, (prefix, sep) = ('export ', '=')):
 ## ['setenv GLOBAL_DEBUG yes', 'setenv output_file yes', 'setenv GLOBAL_VERBOSE no', 'setenv GLOBAL_DEBUGGING_DETAILED no', 'setenv GLOBAL_DEBUGGING_HEADER debugging started']
 ## >>> shell_out(flatten(unpack(data)))
 ## ['export GLOBAL_DEBUG=yes', 'export output_file=yes', 'export GLOBAL_VERBOSE=no', 'export GLOBAL_DEBUGGING_DETAILED=no', 'export GLOBAL_DEBUGGING_HEADER=debugging started']
-## Surprise, surprise; this worked OK first time - just try in a python interpreter:
 """
 
 ## from ruamel import yaml ## === YAML importer, N.B. cannot handle double quotes really well
@@ -44,6 +43,3 @@ extras = ('setenv ', ' ') if os.path.splitext(sys.argv[0])[1] == '.csh' else ('e
 for name in matches:
   for rule in shell_out(flatten(unpack(yaml.safe_load(open(name)))), extras):
     print rule
-
-## That's all folks
-

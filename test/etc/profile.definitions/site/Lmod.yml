@@ -1,6 +1,6 @@
 LMOD:
   RC:                           /etc/site/lmod/lmodrc.lua
-  SYSTEM_DEFAULT_MODULES:       "settarg use.own.eb HPCBIOS/2015q2" # sge cluster"
+  SYSTEM_DEFAULT_MODULES:       "settarg use.own.eb HPCBIOS/2016q2" # sge cluster"
   TMOD_FIND_FIRST:              yes
   ADMIN_FILE:                   /dev/shm/lmod/lmod_admin_file
   PACKAGE_PATH:                 /etc/site/lmod
