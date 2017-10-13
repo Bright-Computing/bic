@@ -3,9 +3,6 @@
 #### Who:  Fotis Georgatos, 2017, MIT license
 #### How:  If you can't state your case in oneliner functions, probably you haven't understood it well enough; and if that doesn't work, well, the same!
 
-## pattern='/etc/profile.definitions/{global,site/*,nodecategory/*,groups/`id -gn`,user/`id -un`}.yml'
-pattern='test/etc/profile.definitions/*.yml' ## this is actually directory-recursive, which is counter-intuitive
-
 def unpack(dct, prefix=''):
   return [unpack(v, prefix + k + '_') if type(v) == dict else {prefix + k: '"%s"' % str(v)} for k, v in dct.items()] ## enforces "value", ie. double quotes
 
@@ -31,6 +28,10 @@ import yaml ## === YAML importer, N.B. cannot handle double quotes really well, 
 import fnmatch
 import os
 import sys
+
+## pattern='/etc/profile.definitions/{global,site/*,nodecategory/*,groups/`id -gn`,user/`id -un`}.yml'
+pattern='test/etc/profile.definitions/*.yml' if len(sys.argv)<2 else ' '.join(sys.argv[1:]) ## this is actually directory-recursive, which is counter-intuitive
+print pattern
 
 matches = []
 for (root, dirnames, filenames) in os.walk(os.path.dirname(pattern)):
