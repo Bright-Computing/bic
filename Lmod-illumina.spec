@@ -109,9 +109,6 @@ install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.csh     %{buildroot}/%{_s
 # guarded definition of $MODULEPATH, could be overwritten above
 install -m 644 %{secname}-%{cmrelease}/00-modulepath.sh        %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.sh
 install -m 644 %{secname}-%{cmrelease}/00-modulepath.csh       %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.csh
-# This is escape valve for user root, so that no parallel fs default modulefiles would be loaded (fi. sge)
-install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.sh      %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
-install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.csh     %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
 # This is Lmod shell initialization; the last couple files do defaults & restores
 install -m 644 %{secname}-%{cmrelease}/z00_lmod.sh             %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.sh
 install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh            %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.csh
@@ -150,8 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.csh
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z00_lmod.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z00_lmod.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.sh
