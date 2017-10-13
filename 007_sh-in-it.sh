@@ -31,7 +31,6 @@ import sys
 
 ## pattern='/etc/profile.definitions/{global,site/*,nodecategory/*,groups/`id -gn`,user/`id -un`}.yml'
 pattern='test/etc/profile.definitions/*.yml' if len(sys.argv)<2 else ' '.join(sys.argv[1:]) ## this is actually directory-recursive, which is counter-intuitive
-print pattern
 
 matches = []
 for (root, dirnames, filenames) in os.walk(os.path.dirname(pattern)):

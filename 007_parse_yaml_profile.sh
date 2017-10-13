@@ -3,9 +3,9 @@ PARSEFILES=$(ls /etc/profile.definitions/{global,site/*,nodecategory/*,groups/`i
 if [ -z "$__Init_Default_Profile" ]; then
   export __Init_Default_Profile=1;
   if [ -z $1 ]; then
-    eval `cat /dev/null $PARSEFILES | bash /etc/profile.definitions/parse_yaml.sh |sed 's/^/export /g;s/[[:space:]]*#.*//g'`
+    eval `for i in $PARSEFILES; do python 007_sh-in-it.sh $i;done`
   else
-    cat /dev/null $PARSEFILES | bash /etc/profile.definitions/parse_yaml.sh|sed 's/^/export /g;s/[[:space:]]*#.*//g'
+          for i in $PARSEFILES; do python 007_sh-in-it.csh $i;done
   fi
 fi
 
