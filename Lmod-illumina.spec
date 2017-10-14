@@ -150,6 +150,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.py
+%ghost %{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.pyc
+%ghost %{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.pyo
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
