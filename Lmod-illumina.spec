@@ -1,11 +1,11 @@
 ## This RPM .spec file will provide a build process for a cluster-ready Lmod: https://github.com/TACC/Lmod
-## Please provide feedback about it at collaboration repo: http://github.com/plabrop/bic
+## Please provide feedback about it at collaboration repo: http://github.com/Bright-Computing/bic
 
 %define cmrelease       7.0 
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.6.3
+%define version         7.7.7
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list HEAD --first-parent | wc -l)
 %endif
 
-%define git_tag     3f4cc30
+%define git_tag     31825c9
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
@@ -104,14 +104,15 @@ mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d
 
 # Local business customization
+install -m 644 %{secname}-%{cmrelease}/007-sh-in-it.sh         %{buildroot}/%{_sysconfdir}/profile.d/007-sh-in-it.sh     
+install -m 644 %{secname}-%{cmrelease}/007-sh-in-it.csh        %{buildroot}/%{_sysconfdir}/profile.d/007-sh-in-it.csh     
+install -m 644 %{secname}-%{cmrelease}/007-sh-in-it.xyzzy.py   %{buildroot}/%{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.py
+# Local business customization
 install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.sh      %{buildroot}/%{_sysconfdir}/profile.d/00-INIT-MODULES.sh
 install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.csh     %{buildroot}/%{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 # guarded definition of $MODULEPATH, could be overwritten above
 install -m 644 %{secname}-%{cmrelease}/00-modulepath.sh        %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.sh
 install -m 644 %{secname}-%{cmrelease}/00-modulepath.csh       %{buildroot}/%{_sysconfdir}/profile.d/00-modulepath.csh
-# This is escape valve for user root, so that no parallel fs default modulefiles would be loaded (fi. sge)
-install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.sh      %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
-install -m 644 %{secname}-%{cmrelease}/00-USER_IS_ROOT.csh     %{buildroot}/%{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
 # This is Lmod shell initialization; the last couple files do defaults & restores
 install -m 644 %{secname}-%{cmrelease}/z00_lmod.sh             %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.sh
 install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh            %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.csh
@@ -142,16 +143,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %doc INSTALL License README.md README.new README_lua_modulefiles.txt
+%config(noreplace) %attr(755, root, root) %{_sysconfdir}/modulefiles
 %config(noreplace) %attr(755, root, root) %{_sysconfdir}/site/modules
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/SitePackage.lua
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/lmodrc.lua
-%config(noreplace) %attr(755, root, root) %{_sysconfdir}/modulefiles
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.sh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.csh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.py
+%ghost %{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.pyc
+%ghost %{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.pyo
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.csh
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.sh
-%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-USER_IS_ROOT.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z00_lmod.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z00_lmod.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.sh

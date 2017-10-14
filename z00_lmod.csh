@@ -27,7 +27,6 @@ if ( ! $?MODULEPATH_ROOT ) then
   endif
 
   setenv TARG_TITLE_BAR_PAREN " "
-  setenv LMOD_FULL_SETTARG_SUPPORT yes
   setenv LMOD_SETTARG_CMD     :
   setenv LMOD_COLORIZE        yes
   setenv LMOD_PREPEND_BLOCK   normal
