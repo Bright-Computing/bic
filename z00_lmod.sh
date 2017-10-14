@@ -21,7 +21,6 @@ if [ -z "${MODULEPATH_ROOT:-}" ]; then
 
   export MODULEPATH_ROOT="/usr/share/modulefiles"
   export LMOD_SETTARG_CMD=":"
-  ##export LMOD_FULL_SETTARG_SUPPORT=yes
   export LMOD_COLORIZE=yes
   export LMOD_PREPEND_BLOCK=normal
   # export MODULEPATH=$(/usr/share/lmod/lmod/libexec/addto --append MODULEPATH $MODULEPATH_ROOT/$LMOD_sys $MODULEPATH_ROOT/Core)

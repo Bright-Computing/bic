@@ -1,12 +1,13 @@
 LMOD:
   RC:                           /etc/site/lmod/lmodrc.lua
-  SYSTEM_DEFAULT_MODULES:       "settarg use.own.eb HPCBIOS/2015q2" # sge cluster"
-  ##FULL_SETTARG_SUPPORT:         full
+  SYSTEM_DEFAULT_MODULES:       "settarg use.own.eb HPCBIOS/2016q2" # sge cluster"
   TMOD_FIND_FIRST:              yes
   ADMIN_FILE:                   /dev/shm/lmod/lmod_admin_file
   PACKAGE_PATH:                 /etc/site/lmod
-  TARGPATHLOC:                  last
-  SETTARG_TITLE_BAR:            yes
+  SETTARG:
+    FULL_SUPPORT:               full
+    TARG_PATH_LOCATION:         last
+    TITLE_BAR:                  yes
 
-##MODULEPATH: /etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles:/etc/site/modules
-MODULEPATH: /etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles:/etc/site/modules:/etc/modulefiles___is_this_working___
+MODULEPATH: /etc/modulefiles:/usr/share/modulefiles:/etc/site/modules
+##MODULEPATH: /etc/modulefiles:/usr/share/modulefiles:/usr/share/Modules/modulefiles:/etc/site/modules:/etc/modulefiles__is_this_working__
