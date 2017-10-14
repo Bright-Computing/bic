@@ -1,5 +1,5 @@
 ## This RPM .spec file will provide a build process for a cluster-ready Lmod: https://github.com/TACC/Lmod
-## Please provide feedback about it at collaboration repo: http://github.com/plabrop/bic
+## Please provide feedback about it at collaboration repo: http://github.com/Bright-Computing/bic
 
 %define cmrelease       7.0 
 %define release         cm7.0
@@ -104,6 +104,10 @@ mkdir -p %{buildroot}%{_sysconfdir}/modulefiles
 mkdir -p %{buildroot}%{_sysconfdir}/profile.d
 
 # Local business customization
+install -m 644 %{secname}-%{cmrelease}/007-sh-in-it.sh         %{buildroot}/%{_sysconfdir}/profile.d/007-sh-in-it.sh     
+install -m 644 %{secname}-%{cmrelease}/007-sh-in-it.csh        %{buildroot}/%{_sysconfdir}/profile.d/007-sh-in-it.csh     
+install -m 644 %{secname}-%{cmrelease}/007-sh-in-it.xyzzy.py   %{buildroot}/%{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.py
+# Local business customization
 install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.sh      %{buildroot}/%{_sysconfdir}/profile.d/00-INIT-MODULES.sh
 install -m 644 %{secname}-%{cmrelease}/00-INIT-MODULES.csh     %{buildroot}/%{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 # guarded definition of $MODULEPATH, could be overwritten above
@@ -139,10 +143,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %doc INSTALL License README.md README.new README_lua_modulefiles.txt
+%config(noreplace) %attr(755, root, root) %{_sysconfdir}/modulefiles
 %config(noreplace) %attr(755, root, root) %{_sysconfdir}/site/modules
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/SitePackage.lua
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/site/lmod/lmodrc.lua
-%config(noreplace) %attr(755, root, root) %{_sysconfdir}/modulefiles
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.sh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.csh
+%config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/007-sh-in-it.xyzzy.py
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.sh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-INIT-MODULES.csh
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/00-modulepath.sh
