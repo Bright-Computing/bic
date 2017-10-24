@@ -23,7 +23,7 @@ def shell_out(dct, (prefix, sep) = ('export ', '=')):
 """
 
 ## from ruamel import yaml ## modern YAML importer, N.B. cannot handle double quotes really well, so it affects unpack() function
-import yaml ## === YAML importer, N.B. cannot handle double quotes really well, either, so it affects unpack() function
+import yaml ## == YAML importer, mangles yes->True, N.B. cannot handle double quotes really well, so it affects unpack() function, too!
 import fnmatch
 import os
 import sys
