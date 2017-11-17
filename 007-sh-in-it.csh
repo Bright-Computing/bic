@@ -2,7 +2,7 @@
 #### Who:  Fotis Georgatos, 2017, MIT license
 
 set what = "groups/`id -gn`,user/`id -un`"
-setenv __PARSEFILES "`/bin/bash -c 'ls -f /etc/profile.definitions/{global*,site/*,nodecategory/*,$what}.yml 2>/dev/null'`"
+setenv __PARSEFILES "`/bin/bash -c 'ls -f /etc/profile.definitions/{global*,site/*,sitelocal/*,nodecategory/*,$what}.yml 2>/dev/null'`"
 
 if ( ! $?__Init_Default_Profile ) then
   foreach file ($__PARSEFILES)
