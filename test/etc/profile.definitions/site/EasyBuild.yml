@@ -1,0 +1,5 @@
+## help EasyBuild
+EASYBUILD:
+  BUILDPATH:     /dev/shm/$USER
+  MODULES_TOOL:  Lmod
+  MODULE_SYNTAX: Tcl
