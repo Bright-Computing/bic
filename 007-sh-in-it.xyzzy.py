@@ -3,14 +3,15 @@
 #### Who:  Fotis Georgatos, 2017, MIT license
 #### How:  If you can't state your case in oneliner functions, probably you haven't understood it well enough; and if that doesn't work, well, the same!
 
-def unpack(dct, prefix=''):
-  return [unpack(v, prefix + k + '_') if type(v) == dict else {prefix + k: '"%s"' % str(v)} for k, v in dct.items()] ## enforces "value", ie. double quotes
+def unpack(dct, prefix=''):                             ## the below enforces "value", ie. provide double quotes
+  if dct is None: return [{'__Elvis_was_here__': '"__Elvis_was_here__"'}]
+  return [unpack(v, prefix + k + '_') if type(v) == dict else {prefix + k: '"%s"' % str(v)} for k, v in dct.items()]
 
-def flatten(l):
-  return flatten(l[0]) + (flatten(l[1:]) if len(l) > 1 else []) if type(l) is list else [l]                          ## flatten lists of lists etc
+def flatten(l):                                         ## flatten lists of lists etc
+  return flatten(l[0]) + (flatten(l[1:]) if len(l) > 1 else []) if type(l) is list else [l]
 
-def shell_out(dct, (prefix, sep) = ('export ', '=')):
-  return [prefix + k + sep + v for k,v in dict(d.items()[0] for d in dct).items()]                                   ## prepare strings for shell consumption
+def shell_out(dct, (prefix, sep) = ('export ', '=')):   ## prepare strings for consumption by shell (i.e. var definitions)
+  return [prefix + k + sep + v for k,v in dict(d.items()[0] for d in dct).items()]
 
 """
 ## Surprise, surprise; this worked pretty OK first time - just try in a python interpreter:
@@ -34,7 +35,9 @@ pattern='test/etc/profile.definitions/*.yml' if len(sys.argv)<2 else ' '.join(sy
 matches = []
 for (root, dirnames, filenames) in os.walk(os.path.dirname(pattern)):
   for filename in fnmatch.filter(filenames, os.path.basename(pattern)):
-    matches.append(os.path.join(root, filename))
+    what = os.path.join(root, filename)
+    if os.path.exists(what) and os.stat(what).st_size and os.access(what, os.R_OK):
+      matches.append(what)
 
 shell_knobs = ('setenv ', ' ') if os.path.splitext(sys.argv[0])[1] == '.csh' else ('export ', '=')
 for name in matches:
