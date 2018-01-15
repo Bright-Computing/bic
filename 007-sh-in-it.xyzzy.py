@@ -4,7 +4,7 @@
 #### How:  If you can't state your case in oneliner functions, probably you haven't understood it well enough; and if that doesn't work, well, the same!
 
 def unpack(dct, prefix=''):                             ## the below enforces "value", ie. provide double quotes
-  if dct is None: return [{'__Elvis_was_here__': '"__Elvis_was_here__"'}]
+  if dct is None: return [{'__Elvis_was_here__': '"__Elvis_was_here__"'}] ## this leaves a mark in the env that something went amiss; TBD.
   return [unpack(v, prefix + k + '_') if type(v) == dict else {prefix + k: '"%s"' % str(v)} for k, v in dct.items()]
 
 def flatten(l):                                         ## flatten lists of lists etc
