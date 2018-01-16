@@ -6,7 +6,7 @@ setenv __PARSEFILES "`/bin/bash -c 'ls -f /etc/profile.definitions/{global*,site
 
 if ( ! $?__Init_Default_Profile ) then
   foreach file ($__PARSEFILES)
-    if ( -f $file ) then
+    if ( -s $file ) then
       eval `python /etc/profile.d/007-sh-in-it.xyzzy.py $file|sed 's/^export /setenv /g;s/=\(.*\)/ \1/g'|tr '\n' ';'`
     endif
   end
