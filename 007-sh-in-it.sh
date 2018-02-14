@@ -3,7 +3,7 @@
 __PARSEFILES=$(ls -f /etc/profile.definitions/{global*,site/*,sitelocal/*,nodecategory/*,groups/`id -gn`,user/`id -un`}.yml 2>/dev/null)
 
 if [ -z "$__Init_Default_Profile" ]; then
-  eval `for i in $__PARSEFILES; do [[ -f $i ]] && python /etc/profile.d/007-sh-in-it.xyzzy.py $i;done`
+  eval `for i in $__PARSEFILES; do [[ -s $i ]] && python /etc/profile.d/007-sh-in-it.xyzzy.py $i;done`
   export __Init_Default_Profile=1;
 fi
 
