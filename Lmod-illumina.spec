@@ -5,7 +5,7 @@
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.7.20
+%define version         7.7.24
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list HEAD --first-parent | wc -l)
 %endif
 
-%define git_tag     21efd6f
+%define git_tag     22d224b
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
@@ -121,12 +121,12 @@ install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_s
 # install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
 
 # Install the contrib directory
-cp -a contrib                                          %{buildroot}%{_datadir}/lmod/%{version}
-cp -a contrib/use.own.eb                               %{buildroot}%{_sysconfdir}/site/modules
-# this symlink ensures settarg functionality
-ln -s /usr/share/lmod/lmod/modulefiles/Core/settarg    %{buildroot}%{_sysconfdir}/site/modules
+cp -a contrib                                              %{buildroot}%{_datadir}/lmod/%{version}
+cp -a contrib/use.own.eb                                   %{buildroot}%{_sysconfdir}/site/modules
+# this symlink ensures settarg.lua functionality
+ln -s /usr/share/lmod/lmod/modulefiles/Core/settarg.lua    %{buildroot}%{_sysconfdir}/site/modules
 # this defines coloring and where the cache lives
-cp -a %{secname}-%{cmrelease}/lmodrc.lua               %{buildroot}%{_sysconfdir}/site/lmod
+cp -a %{secname}-%{cmrelease}/lmodrc.lua                   %{buildroot}%{_sysconfdir}/site/lmod
 
 %if %{sles11}
 # For sles11 /usr/bin/lua is not in the rpm file list, its created with the alternatives-update command in the post section of the lua package.
