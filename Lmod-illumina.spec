@@ -81,7 +81,7 @@ rm -r pkgs tools/json.lua
 #sed -i -e 's, pkgs , ,' Makefile.in
 # Remove unneeded shebangs
 sed -i -e '/^#!/d' init/*.in
-%setup -c -D -T -a 1
+%setup -q -c -D -T -a 1
 
 %patch0 -p1
 
@@ -162,4 +162,4 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.csh
 %{_datadir}/lmod
 %{_datadir}/modulefiles
-# %{macrosdir}/macros.%{name}
+# %%{macrosdir}/macros.%%{name}
