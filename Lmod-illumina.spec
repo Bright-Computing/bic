@@ -36,7 +36,7 @@ Name:           %{name}
 Version:        %{version}
 Release:        %{release}
 Summary:        Environmental Modules System in Lua
-Group:          Utilities/Shell
+Group:          Unspecified
 License:        MIT and LGPLv2
 URL:            https://www.tacc.utexas.edu/tacc-projects/lmod
 Source0:        https://github.com/TACC/%{name}/archive/%{version}.tar.gz
