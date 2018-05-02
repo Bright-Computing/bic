@@ -1,11 +1,11 @@
 ## This RPM .spec file will provide a build process for a cluster-ready Lmod: https://github.com/TACC/Lmod
-## Please provide feedback about it at collaboration repo: http://github.com/Bright-Computing/bic
+## Please provide feedback about it, at the github collaboration repository:  http://github.com/Bright-Computing/bic
 
 %define cmrelease       7.0 
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.7.24
+%define version         7.7.29
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list HEAD --first-parent | wc -l)
 %endif
 
-%define git_tag     22d224b
+%define git_tag     a217695
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
