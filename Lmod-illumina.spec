@@ -58,7 +58,7 @@ Requires:       lua-filesystem
 Requires:       lua-json
 Requires:       lua-posix
 Requires:       lua-term
-###Requires:       cm-config-cm = %cmrelease  ### unhash me when all is fine
+## Requires:       cm-config-cm = %%cmrelease  ## unhash me when all is fine
 Provides:       environment(modules)
 Patch0:         lmod-bash-xtrace.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -118,7 +118,7 @@ install -m 644 %{secname}-%{cmrelease}/z00_lmod.sh             %{buildroot}/%{_s
 install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh            %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.csh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh  %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
-# install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
+# install -Dpm 644 %%{SOURCE1} %%{buildroot}/%%{macrosdir}/macros.%%{name}
 
 # Install the contrib directory
 cp -a contrib                                              %{buildroot}%{_datadir}/lmod/%{version}
