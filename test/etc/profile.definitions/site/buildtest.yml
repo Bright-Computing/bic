@@ -8,7 +8,7 @@ BUILDTEST:
   CONFIGS_REPO:                    $HOME/buildtest-framework/toolkit
   LOGDIR:                          $HOME
   TESTDIR:                         $HOME/buildtest
-#  MODULEPATH:                     /eb/2018/commons/modules/all:/eb/2018/Broadwell/redhat/7.3/modules/all:/nfs/grid/software/moduledomains:/etc/modulefiles:/usr/share/modulefiles:/usr/share/lmod/lmod/modulefiles/Core
+#  MODULEPATH:                     /eb/2018/commons/modules/all:/eb/2018/Broadwell/redhat/7.3/modules/all:/mynfs/grid/software/moduledomains:/etc/modulefiles:/usr/share/modulefiles:/usr/share/lmod/lmod/modulefiles/Core
   PREPEND_MODULES:                 "[]"
   RUN_DIR:                         /tmp/buildtest
   SHELL:                           sh
