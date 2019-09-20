@@ -4,11 +4,10 @@ BUILDTEST:
   BINARY:                          "False"
   CLEAN_BUILD:                     "False"
   EASYBUILD:                       "False"
-  OHPC:                            "False"  
+  OHPC:                            "False"
   SHELL:                           sh
-  MODULEPATH:                      []  
+  MODULEPATH:                      []
   SUCCESS_THRESHOLD:               1.0
   LOGDIR:                          /tmp/$USER/buildtest
   TESTDIR:                         /tmp/$USER/buildtest
-  RUN_DIR:                         /tmp/$USER/buildtest  
-  
+  RUN_DIR:                         /tmp/$USER/buildtest
