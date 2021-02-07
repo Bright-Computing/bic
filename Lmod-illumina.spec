@@ -1,11 +1,11 @@
 ## This RPM .spec file will provide a build process for a cluster-ready Lmod: https://github.com/TACC/Lmod
-## Please provide feedback about it at collaboration repo: http://github.com/Bright-Computing/bic
+## Please provide feedback about it, at the github collaboration repository:  http://github.com/Bright-Computing/bic
 
 %define cmrelease       7.0 
 %define release         cm7.0
 %define name            Lmod
 %define secname         Lmod-files
-%define version         7.7.24
+%define version         7.7.32
 %define debug_package   %{nil}
 
 %define rhel6_based %(test -e /etc/redhat-release && grep -q -E '(CentOS|Red Hat Enterprise Linux Server|Scientific Linux) release 6' /etc/redhat-release && echo 1 || echo 0)
@@ -21,7 +21,7 @@
 %define git_rev     %(git rev-list HEAD --first-parent | wc -l)
 %endif
 
-%define git_tag     22d224b
+%define git_tag     a24bfd0
 %define lmod_upstream_gitid git-%{git_tag}
 
 %if %{rhel6_based}
@@ -36,7 +36,7 @@ Name:           %{name}
 Version:        %{version}
 Release:        %{release}
 Summary:        Environmental Modules System in Lua
-Group:          Utilities/Shell
+Group:          Unspecified
 License:        MIT and LGPLv2
 URL:            https://www.tacc.utexas.edu/tacc-projects/lmod
 Source0:        https://github.com/TACC/%{name}/archive/%{version}.tar.gz
@@ -58,7 +58,7 @@ Requires:       lua-filesystem
 Requires:       lua-json
 Requires:       lua-posix
 Requires:       lua-term
-###Requires:       cm-config-cm = %cmrelease  ### unhash me when all is fine
+## Requires:       cm-config-cm = %%cmrelease  ## unhash me when all is fine
 Provides:       environment(modules)
 Patch0:         lmod-bash-xtrace.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -81,7 +81,7 @@ rm -r pkgs tools/json.lua
 #sed -i -e 's, pkgs , ,' Makefile.in
 # Remove unneeded shebangs
 sed -i -e '/^#!/d' init/*.in
-%setup -c -D -T -a 1
+%setup -q -c -D -T -a 1
 
 %patch0 -p1
 
@@ -118,7 +118,7 @@ install -m 644 %{secname}-%{cmrelease}/z00_lmod.sh             %{buildroot}/%{_s
 install -m 644 %{secname}-%{cmrelease}/z00_lmod.csh            %{buildroot}/%{_sysconfdir}/profile.d/z00_lmod.csh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.sh  %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.sh
 install -m 644 %{secname}-%{cmrelease}/z01-default_modules.csh %{buildroot}/%{_sysconfdir}/profile.d/z01-default_modules.csh
-# install -Dpm 644 %{SOURCE1} %{buildroot}/%{macrosdir}/macros.%{name}
+# install -Dpm 644 %%{SOURCE1} %%{buildroot}/%%{macrosdir}/macros.%%{name}
 
 # Install the contrib directory
 cp -a contrib                                              %{buildroot}%{_datadir}/lmod/%{version}
@@ -162,4 +162,4 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %attr(644, root, root) %{_sysconfdir}/profile.d/z01-default_modules.csh
 %{_datadir}/lmod
 %{_datadir}/modulefiles
-# %{macrosdir}/macros.%{name}
+# %%{macrosdir}/macros.%%{name}

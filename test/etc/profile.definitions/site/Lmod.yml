@@ -3,7 +3,7 @@ LMOD:
   CACHE:                        $HOME/.lmod.d/.cache
   CACHED_LOADS:                 "yes"
   RC:                           /etc/site/lmod/lmodrc.lua
-  SYSTEM_DEFAULT_MODULES:       "settarg use.own.eb sge cluster" # HPCBIOS/2016q2"
+  SYSTEM_DEFAULT_MODULES:       "use.own.eb sge cluster" ## settarg HPCBIOS/2016q2"
   ADMIN_FILE:                   /dev/shm/lmod/lmod_admin_file
   PACKAGE_PATH:                 /etc/site/lmod
   USE_DOT_FILES:                "yes"
